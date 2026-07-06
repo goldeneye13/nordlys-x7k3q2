@@ -1,0 +1,355 @@
+<title>Iceland &amp; North Sea 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#F2F6F7; --card:#FFFFFF; --ink:#16242C; --muted:#5C7076;
+  --accent:#2E7E93; --accent-ink:#FFFFFF; --line:#D8E2E5;
+  --ember:#C4552F; --ember-soft:#F9E9E2; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#E4EDEF;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0F171C; --card:#18232A; --ink:#DCE7EA; --muted:#8FA6AD;
+    --accent:#5FB7C9; --accent-ink:#0F171C; --line:#26343C;
+    --ember:#E5794F; --ember-soft:#3A241B; --ok:#6CC493; --ok-soft:#1D3327;
+    --chipbg:#20303840;
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F2F6F7; --card:#FFFFFF; --ink:#16242C; --muted:#5C7076;
+  --accent:#2E7E93; --accent-ink:#FFFFFF; --line:#D8E2E5;
+  --ember:#C4552F; --ember-soft:#F9E9E2; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#E4EDEF;
+}
+:root[data-theme="dark"]{
+  --ground:#0F171C; --card:#18232A; --ink:#DCE7EA; --muted:#8FA6AD;
+  --accent:#5FB7C9; --accent-ink:#0F171C; --line:#26343C;
+  --ember:#E5794F; --ember-soft:#3A241B; --ok:#6CC493; --ok-soft:#1D3327;
+  --chipbg:#20303840;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.5;
+}
+.wrap{max-width:640px; margin:0 auto; padding:0 16px 64px}
+header.hero{padding:28px 0 12px}
+.hero h1{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.7rem; line-height:1.2; margin:0 0 4px; text-wrap:balance;
+}
+.hero .dates{color:var(--muted); font-size:.95rem}
+.routeline{
+  margin-top:14px; padding:10px 14px; background:var(--card);
+  border:1px solid var(--line); border-radius:10px;
+  font-size:.85rem; color:var(--muted); overflow-x:auto; white-space:nowrap;
+}
+.routeline b{color:var(--accent); font-weight:600}
+nav.chips{
+  position:sticky; top:0; z-index:10; background:var(--ground);
+  padding:10px 0; margin:8px -16px 0; padding-left:16px; padding-right:16px;
+  display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--line);
+}
+nav.chips a{
+  flex:0 0 auto; text-decoration:none; color:var(--ink);
+  background:var(--chipbg); border-radius:999px; padding:6px 13px;
+  font-size:.83rem; font-weight:600;
+}
+nav.chips a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+section{padding-top:22px}
+section h2{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.22rem; margin:0 0 2px; text-wrap:balance;
+}
+section .sub{color:var(--muted); font-size:.88rem; margin:0 0 12px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:4px 0; margin-bottom:14px; overflow:hidden;
+}
+.row{
+  display:grid; grid-template-columns:58px 1fr; gap:0 12px;
+  padding:12px 14px; border-bottom:1px solid var(--line);
+}
+.row:last-child{border-bottom:none}
+.row .t{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-variant-numeric:tabular-nums; font-size:.83rem; color:var(--accent);
+  font-weight:600; padding-top:2px;
+}
+.row .what{font-weight:650; font-size:.98rem}
+.row .note{color:var(--muted); font-size:.88rem; margin-top:2px}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+.links a{
+  display:inline-block; text-decoration:none; font-size:.8rem; font-weight:650;
+  color:var(--accent); border:1.5px solid var(--accent); border-radius:999px;
+  padding:3px 12px;
+}
+.links a.solid{background:var(--accent); color:var(--accent-ink)}
+.tag{
+  display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em;
+  border-radius:6px; padding:2px 8px; vertical-align:2px; margin-left:6px;
+}
+.tag.booked{background:var(--ok-soft); color:var(--ok)}
+.tag.todo{background:var(--ember-soft); color:var(--ember)}
+.tag.decide{background:var(--chipbg); color:var(--muted)}
+.warn{
+  margin:0 14px 12px; padding:10px 12px; border-radius:10px;
+  background:var(--ember-soft); color:var(--ember); font-size:.86rem; font-weight:550;
+}
+ul.plain{margin:6px 0 10px; padding-left:20px}
+ul.plain li{margin-bottom:6px; font-size:.92rem}
+.check .row{grid-template-columns:1fr auto; align-items:center}
+.check .what{font-size:.93rem}
+.check .note{font-size:.82rem}
+footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <h1>Iceland &amp; North Sea 2026</h1>
+  <div class="dates">July 10 – 29 · Juan · Tom · Mike · Danny · Pancho · Gloria<br>Jul 13: Juan+Tom meet parents at AMS → FI 507 to KEF · Jul 14: M&amp;D land KEF 08:00 via Montreal</div>
+  <div class="routeline"><b>REK</b> Jul 13–19 → <b>ms Rotterdam</b> Heimaey · Djúpivogur · Runavík · Edinburgh → <b>RTM</b> Jul 26 → <b>AMS</b></div>
+</header>
+
+<nav class="chips">
+  <a href="#tue">Tue 14</a><a href="#wed">Wed 15</a><a href="#thu">Thu 16</a><a href="#fri">Fri 17</a><a href="#sat">Sat 18</a><a href="#cruise">Cruise</a><a href="#ams">A’dam</a><a href="#todo">To-Do</a>
+</nav>
+
+<section id="base">
+  <h2>Base camp</h2>
+  <p class="sub">Airbnb “Greenkey” · Laugavegur 40a, 101 Reykjavík · Jul 13–19</p>
+  <div class="card">
+    <div class="row"><div class="t">Jul 13</div><div><div class="what">Arrive KEF 18:20 · FI 507</div>
+      <div class="note">All six meet at AMS earlier that day. Pick up 2 rental cars at KEF, drive in (~50 min). Check-in 16:00+.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Laugavegur+40a+Reykjavik">Airbnb map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Keflavik+Airport&amp;destination=Laugavegur+40a+Reykjavik">Route KEF → Airbnb</a></div>
+    </div></div>
+    <div class="row"><div class="t">Jul 19</div><div><div class="what">Checkout 10:00 → embark ms Rotterdam</div>
+      <div class="note">Ship sails 22:00 from Reykjavík (Skarfabakki). Return rental cars; confirm drop-off location.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Skarfabakki+cruise+terminal+Reykjavik">Cruise terminal</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="tue">
+  <h2>Tue Jul 14 — City + Blue Lagoon</h2>
+  <p class="sub">Mike &amp; Danny land 08:00. Loose day, one anchor.</p>
+  <div class="card">
+    <div class="row"><div class="t">a.m.</div><div><div class="what">Easy start · Sandholt breakfast</div>
+      <div class="note">Let the arrivals drop bags and breathe.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sandholt+Laugavegur+Reykjavik">Map</a></div>
+    </div></div>
+    <div class="row"><div class="t">day</div><div><div class="what">Hop-on-Hop-off bus — ad hoc</div>
+      <div class="note">Buy same-day. Harpa, Old Harbour, Perlan, Hallgrímskirkja. Nap-friendly.</div>
+    </div></div>
+    <div class="row"><div class="t">18:00</div><div><div class="what">Early casual dinner in town</div>
+      <div class="note">Food out at the lagoon is limited — eat first.</div>
+    </div></div>
+    <div class="row"><div class="t">19:00</div><div><div class="what">Drive to Blue Lagoon — both cars</div>
+      <div class="note">~50 min. Free parking.</div>
+      <div class="links"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Blue+Lagoon+Iceland">Route</a></div>
+    </div></div>
+    <div class="row"><div class="t">20:00</div><div><div class="what">Blue Lagoon ×6 <span class="tag booked">BOOKED</span></div>
+      <div class="note">Booked by Danny — he has the confirmation. Indoor water entry both ways. Conditioner in hair; no jewelry. Home ~23:15 in daylight.</div>
+      <div class="links"><a class="solid" href="https://www.bluelagoon.com/">bluelagoon.com</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Blue+Lagoon+Iceland&amp;destination=Laugavegur+40a+Reykjavik">Route home</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="wed">
+  <h2>Wed Jul 15 — Reykjavík day</h2>
+  <p class="sub">No fixed schedule. Cars stay parked. Pick and choose:</p>
+  <div class="card">
+    <div class="row"><div class="t">—</div><div><div class="what">City menu</div>
+      <ul class="plain">
+        <li><b>Hallgrímskirkja</b> tower for the panorama</li>
+        <li><b>Sun Voyager</b> → waterfront walk → <b>Harpa</b></li>
+        <li><b>Perlan</b> or <b>FlyOver Iceland</b> (weather-proof)</li>
+        <li>Lunch: <b>Hlemmur Mathöll</b> food hall (5 min walk)</li>
+        <li>Shopping: Laugavegur &amp; the rainbow street</li>
+        <li>Ice cream at <b>Valdís</b>, Grandi — house rule</li>
+      </ul>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hallgrimskirkja">Hallgrímskirkja</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hlemmur+Matholl">Hlemmur</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Valdis+Grandagardur+Reykjavik">Valdís</a></div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">The nice group dinner <span class="tag todo">RESERVE</span></div>
+      <div class="note">Messinn / Sümac / Grillmarkaðurinn — table for 6, book 1–2 days out.</div>
+    </div></div>
+    <div class="row"><div class="t">opt.</div><div><div class="what">Option B (parked): Silfra subset a.m.</div>
+      <div class="note">Only if not doing Silfra on Thursday. ~09:30 meet-on-location, back by 13:30.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="thu">
+  <h2>Thu Jul 16 — Golden Circle</h2>
+  <p class="sub">~250 km loop · home by ~18:00 · lunch is the one reservation</p>
+  <div class="card">
+    <div class="row"><div class="t">08:00</div><div><div class="what">Depart — Route 36</div>
+      <div class="links"><a class="solid" href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Kerid+Crater&amp;waypoints=Thingvellir+National+Park%7CGeysir%7CFridheimar%7CGullfoss">Full route</a></div>
+    </div></div>
+    <div class="row"><div class="t">08:45</div><div><div class="what">Þingvellir National Park</div>
+      <div class="note">Park P1 (Hakið) → Almannagjá gorge → Öxarárfoss. Silfra viewing platform near P5 — watch snorkelers from dry land.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Thingvellir+Hakid+visitor+center">P1 Hakið</a></div>
+    </div></div>
+    <div class="row"><div class="t">11:40</div><div><div class="what">Geysir — Strokkur</div>
+      <div class="note">Erupts every 5–10 min. Stand upwind. Optional ice-cream stop en route: Efstidalur farm.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Strokkur+Geysir">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Thingvellir+Hakid+visitor+center&amp;destination=Geysir">Leg: Þingvellir → Geysir</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Efstidalur+II">Efstidalur</a></div>
+    </div></div>
+    <div class="row"><div class="t">12:40</div><div><div class="what">Friðheimar — tomato greenhouse lunch <span class="tag todo">RESERVE ×6</span></div>
+      <div class="note">12:30 sitting (base plan) or 13:45 if Silfra Option A. Books out weeks ahead.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Fridheimar+Iceland">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Geysir&amp;destination=Fridheimar">Leg: Geysir → Friðheimar</a></div>
+    </div></div>
+    <div class="row"><div class="t">14:20</div><div><div class="what">Gullfoss</div>
+      <div class="note">Lower path = close &amp; wet; upper viewpoint excellent and easier.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Gullfoss">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Fridheimar&amp;destination=Gullfoss">Leg: Friðheimar → Gullfoss</a></div>
+    </div></div>
+    <div class="row"><div class="t">16:15</div><div><div class="what">Kerið crater</div>
+      <div class="note">Rim walk, ~600 ISK. Then home via Selfoss.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Kerid+Crater">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Gullfoss&amp;destination=Kerid+Crater">Leg: Gullfoss → Kerið</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Kerid+Crater&amp;destination=Laugavegur+40a+Reykjavik">Leg: Kerið → home</a></div>
+    </div></div>
+    <div class="row"><div class="t">opt.</div><div><div class="what">Option A: Silfra snorkel split <span class="tag decide">DECIDE</span></div>
+      <div class="note">Snorkelers (Juan, Mike, Danny ± Tom w/ doctor form) ~09:15–11:30 at Silfra; others tour Þingvellir slowly. Shifts lunch to 13:45.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="fri">
+  <h2>Fri Jul 17 — South Coast &amp; Vík</h2>
+  <p class="sub">~380 km · ~12 hrs · biggest day of the week</p>
+  <div class="card">
+    <div class="warn">⚠️ Reynisfjara sneaker waves are deadly — stay far up the beach, never turn your back on the water.</div>
+    <div class="row"><div class="t">08:00</div><div><div class="what">Depart (Sandholt run at 07:45)</div>
+      <div class="links"><a class="solid" href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Laugavegur+40a+Reykjavik&amp;waypoints=Seljalandsfoss%7CSkogafoss%7CVik+Iceland%7CReynisfjara+Beach%7CDyrholaey">Full loop</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Seljalandsfoss">Leg: home → Seljalandsfoss</a></div>
+    </div></div>
+    <div class="row"><div class="t">09:45</div><div><div class="what">Seljalandsfoss + Gljúfrabúi</div>
+      <div class="note">Walk behind the falls — rain shells. Hidden canyon falls 700 m north.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Seljalandsfoss">Map</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Gljufrabui">Gljúfrabúi</a></div>
+    </div></div>
+    <div class="row"><div class="t">11:15</div><div><div class="what">Skógafoss</div>
+      <div class="note">Base + optional 500 steps to top. Quieter alt: Kvernufoss (20-min walk from Skógar museum).</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Skogafoss">Map</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Kvernufoss">Kvernufoss</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Seljalandsfoss&amp;destination=Skogafoss">Leg: Seljalandsfoss → Skógafoss</a></div>
+    </div></div>
+    <div class="row"><div class="t">13:20</div><div><div class="what">Lunch in Vík</div>
+      <div class="note">Smiðjan Brugghús (burgers, walk-in) · Suður-Vík (fish soup — call ahead for 6) · Soup Company. Then the red-roof church viewpoint.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Smidjan+Brugghus+Vik">Smiðjan</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Sudur-Vik+restaurant">Suður-Vík</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Vik+i+Myrdal+Church">Red church</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Skogafoss&amp;destination=Vik+Iceland">Leg: Skógafoss → Vík</a></div>
+    </div></div>
+    <div class="row"><div class="t">14:45</div><div><div class="what">Reynisfjara black-sand beach</div>
+      <div class="note">Basalt columns, cave, sea stacks. Heed the warning-light sign.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Reynisfjara+Beach">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Vik+Iceland&amp;destination=Reynisfjara+Beach">Leg: Vík → Reynisfjara</a></div>
+    </div></div>
+    <div class="row"><div class="t">16:00</div><div><div class="what">Dyrhólaey</div>
+      <div class="note">Arch + lighthouse plateau (steep gravel, go slow). Puffins in July — zoom lens.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Dyrholaey">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Reynisfjara+Beach&amp;destination=Dyrholaey">Leg: Reynisfjara → Dyrhólaey</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Dyrholaey&amp;destination=Laugavegur+40a+Reykjavik">Leg: Dyrhólaey → home</a></div>
+    </div></div>
+    <div class="row"><div class="t">17:15</div><div><div class="what">Home — one optional stop</div>
+      <div class="note">Sólheimajökull glacier walk-up (+1 hr) or early dinner at Gamla fjósið. Back 19:30–20:30.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Solheimajokull+parking">Sólheimajökull</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Gamla+fjosid">Gamla fjósið</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="sat">
+  <h2>Sat Jul 18 — Hvammsvík + midnight whales</h2>
+  <p class="sub">Pack in the morning; two anchors after noon</p>
+  <div class="card">
+    <div class="row"><div class="t">12:15</div><div><div class="what">Drive to Hvammsvík</div>
+      <div class="note">~45 min. Take scenic Route 47 around Hvalfjörður at least one way.</div>
+      <div class="links"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Hvammsvik+Hot+Springs">Route</a></div>
+    </div></div>
+    <div class="row"><div class="t">13:00</div><div><div class="what">Hvammsvík Hot Springs ×6 <span class="tag booked">BOOKED</span></div>
+      <div class="note">Comfort tier ×6 — towel + wading shoes (rocky pools) + drink. Seafood soup in the water = lunch. Extra layer for the shoreline walk.</div>
+      <div class="links"><a class="solid" href="https://hvammsvik.com/">hvammsvik.com</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hvammsvik+Hot+Springs&amp;destination=Laugavegur+40a+Reykjavik">Route home</a></div>
+    </div></div>
+    <div class="row"><div class="t">18:00</div><div><div class="what">Early dinner near Old Harbour</div>
+      <div class="note">Messinn or Kopar.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Messinn+Laekjargata">Messinn</a></div>
+    </div></div>
+    <div class="row"><div class="t">19:40</div><div><div class="what">Elding office — Ægisgarður 5c</div>
+      <div class="note">15-min walk from Airbnb. Arrive 20 min before departure.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Elding+Whale+Watching+Aegisgardur+5+Reykjavik">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Aegisgardur+5+Reykjavik&amp;travelmode=walking">Walk route</a><a href="tel:+3545195000">Call Elding</a></div>
+    </div></div>
+    <div class="row"><div class="t">20:00</div><div><div class="what">Whales in the Midnight Sun ×6 <span class="tag booked">BOOKED</span></div>
+      <div class="note">Classic 3-hr tour. Dress like 5 °C — free overalls onboard. Ginger/Bonine 1 hr before for the susceptible. Back ~23:00.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="cruise">
+  <h2>Cruise — ms Rotterdam · Jul 19–26</h2>
+  <p class="sub">Voyage Y650, Reykjavík → Rotterdam. Tender ports marked ⚓.</p>
+  <div class="card">
+    <div class="row"><div class="t">Jul 20</div><div><div class="what">⚓ Heimaey, Westman Islands · 09:00–18:00</div>
+      <div class="note">Peak puffin season. Ribsafari RIB from the harbor (book ahead, small boats) · Eldheimar museum · Eldfell hike · Stórhöfði puffins. Buffer time for tenders.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ribsafari+Heimaey">Ribsafari</a><a href="tel:+3546611810">Call Ribsafari</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Eldheimar+Heimaey">Eldheimar</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Storhofdi+Heimaey">Stórhöfði</a></div>
+    </div></div>
+    <div class="row"><div class="t">Jul 21</div><div><div class="what">⚓ Djúpivogur · 08:00–17:00</div>
+      <div class="note">Walkable village: Eggin í Gleðivík sculptures, coastal paths. Big-ticket glacier trips = HAL excursion only. Scenic cruising Berufjörður after — grab a deck spot.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Eggin+i+Gledivik">Map</a></div>
+    </div></div>
+    <div class="row"><div class="t">Jul 22</div><div><div class="what">Runavík, Faroe Islands · 12:00–20:30 <span class="tag todo">BOOK TOUR ×6</span></div>
+      <div class="note">Half-day port, thin local capacity — pre-booked private minibus/guide or HAL excursion. Tórshavn (Tinganes) ~20 min via tunnel; Saksun lagoon village.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tinganes+Torshavn">Tinganes</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Saksun+Faroe+Islands">Saksun</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Runavik&amp;destination=Torshavn">Leg: Runavík → Tórshavn</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Torshavn&amp;destination=Saksun">Leg: Tórshavn → Saksun</a></div>
+    </div></div>
+    <div class="row"><div class="t">Jul 24</div><div><div class="what">⚓ South Queensferry (Edinburgh) · 08:00–23:00 <span class="tag todo">CASTLE ×6</span></div>
+      <div class="note">Tender to Hawes Pier → walk up to Dalmeny station → ~20 min train to Waverley. Edinburgh Castle timed entry sells out — book. Full day + dinner possible; pre-festival, no crowds crush.</div>
+      <div class="links"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hawes+Pier+South+Queensferry&amp;destination=Dalmeny+railway+station&amp;travelmode=walking">Walk: pier → Dalmeny</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Dalmeny+railway+station&amp;destination=Edinburgh+Castle&amp;travelmode=transit">Train + walk to Castle</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Edinburgh+Castle">Castle</a></div>
+    </div></div>
+    <div class="row"><div class="t">23·25</div><div><div class="what">Sea days — Jul 23 &amp; 25</div>
+      <div class="note">Book ship specialty dining for these nights.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="ams">
+  <h2>Sun Jul 26 → home — Amsterdam split</h2>
+  <p class="sub">Dock 07:00 Rotterdam · one van · staggered departures</p>
+  <div class="card">
+    <div class="row"><div class="t">09:00</div><div><div class="what">Private van ×6 → Amsterdam <span class="tag todo">BOOK</span></div>
+      <div class="note">Pickup: Cruise Terminal Rotterdam, Wilhelminakade 699. Drop M&amp;D bags at Monet House, continue to Sheraton with the rest, all train back into town.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cruise+Terminal+Rotterdam+Wilhelminakade">Terminal</a></div>
+    </div></div>
+    <div class="row"><div class="t">day</div><div><div class="what">Last group day</div>
+      <div class="note">Canal cruise → Jordaan → rijsttafel farewell dinner ×6 (reserve).</div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">Split</div>
+      <div class="note">M&amp;D walk to Monet House. Others: Centraal → Schiphol train, 15 min, ~4/hr till 1 a.m., hourly overnight. Tap credit card at gates (~€4.90).</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sheraton+Amsterdam+Airport+Schiphol">Sheraton</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Monet+House+Amsterdam">Monet House</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Amsterdam+Centraal&amp;destination=Schiphol+Airport&amp;travelmode=transit">Train: Centraal → Schiphol</a></div>
+    </div></div>
+    <div class="row"><div class="t">Mon</div><div><div class="what">Juan &amp; Tom fly · UA 71 AMS→EWR 09:10</div>
+      <div class="note">Sheraton walkway to terminal ~07:00. Parents + M&amp;D: museums (timed tickets) + canals.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rijksmuseum">Rijksmuseum</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Van+Gogh+Museum">Van Gogh</a></div>
+    </div></div>
+    <div class="row"><div class="t">Tue</div><div><div class="what">M&amp;D depart · Parents’ day trip</div>
+      <div class="note">Brussels via Eurostar direct from Schiphol (~1h50, reserved seats) — or gentler Haarlem/Leiden, 15–20 min direct.</div>
+    </div></div>
+    <div class="row"><div class="t">Wed</div><div><div class="what">Parents fly · KL 757 AMS→PTY 12:55</div>
+      <div class="note">Walkway to KLM check-in. No taxi, no variables.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="todo">
+  <h2>Booking checklist</h2>
+  <p class="sub">Ordered by urgency · as of Jul 5</p>
+  <div class="card check">
+    <div class="row"><div><div class="what">UK ETA — Juan ✓ Tom ✓ · parents + Mike &amp; Danny pending</div><div class="note">gov.uk · £16 · boarding requirement — remaining 4 before travel</div></div><span class="tag todo">URGENT</span></div>
+    <div class="row"><div><div class="what">Blue Lagoon · Tue 14, 20:00 ×6</div><div class="note">Booked by Danny — he holds the confirmation</div></div><span class="tag booked">BOOKED</span></div>
+    <div class="row"><div><div class="what">Hvammsvík · Sat 18 ×6</div><div class="note">Conf ABK00127969 — PDF in trip folder</div></div><span class="tag booked">BOOKED</span></div>
+    <div class="row"><div><div class="what">Elding whales · Sat 18, 20:00 ×6</div><div class="note">Order ELN-96418721</div></div><span class="tag booked">BOOKED</span></div>
+    <div class="row"><div><div class="what">Silfra: Option A / B / skip</div><div class="note">Decides Friðheimar time — snorkelers: Juan, Mike, Danny ± Tom (doctor form)</div></div><span class="tag decide">DECIDE</span></div>
+    <div class="row"><div><div class="what">Friðheimar lunch ×6 · Thu 16</div><div class="note">12:30 (base) or 13:45 (Option A)</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Runavík private tour ×6 · Jul 22</div><div class="note">Faroes capacity is tiny — book now</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Edinburgh Castle ×6 · Jul 24</div><div class="note">Timed entry, late morning slot</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Sheraton Schiphol — 2 rooms</div><div class="note">Juan &amp; Tom: Jul 26 ×1 night · Parents: Jul 26–28 ×3 nights</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Van transfer Rotterdam → AMS · Jul 26</div><div class="note">6 pax + cruise luggage, ~09:00</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Rijksmuseum / Van Gogh · Mon 27 ×4</div><div class="note">Timed tickets</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Eurostar Schiphol ↔ Brussels · Tue 28 ×2</div><div class="note">If parents confirm the day trip</div></div><span class="tag decide">DECIDE</span></div>
+  </div>
+  <p class="sub">Pay travel bookings on Chase Sapphire Preferred (trip protection, primary rental CDW). Always pay in local currency, never the USD conversion offer.</p>
+</section>
+
+<footer>Iceland &amp; North Sea · July 2026 · tap any pill to open Google Maps</footer>
+</div>
