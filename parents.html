@@ -1,0 +1,268 @@
+<title>Pancho &amp; Gloria — Summer 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#F2F6F7; --card:#FFFFFF; --ink:#16242C; --muted:#5C7076;
+  --accent:#2E7E93; --accent-ink:#FFFFFF; --line:#D8E2E5;
+  --ember:#C4552F; --ember-soft:#F9E9E2; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#E4EDEF;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0F171C; --card:#18232A; --ink:#DCE7EA; --muted:#8FA6AD;
+    --accent:#5FB7C9; --accent-ink:#0F171C; --line:#26343C;
+    --ember:#E5794F; --ember-soft:#3A241B; --ok:#6CC493; --ok-soft:#1D3327;
+    --chipbg:#20303840;
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F2F6F7; --card:#FFFFFF; --ink:#16242C; --muted:#5C7076;
+  --accent:#2E7E93; --accent-ink:#FFFFFF; --line:#D8E2E5;
+  --ember:#C4552F; --ember-soft:#F9E9E2; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#E4EDEF;
+}
+:root[data-theme="dark"]{
+  --ground:#0F171C; --card:#18232A; --ink:#DCE7EA; --muted:#8FA6AD;
+  --accent:#5FB7C9; --accent-ink:#0F171C; --line:#26343C;
+  --ember:#E5794F; --ember-soft:#3A241B; --ok:#6CC493; --ok-soft:#1D3327;
+  --chipbg:#20303840;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.5;
+}
+.wrap{max-width:640px; margin:0 auto; padding:0 16px 64px}
+header.hero{padding:28px 0 12px}
+.hero h1{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.7rem; line-height:1.2; margin:0 0 4px; text-wrap:balance;
+}
+.hero .dates{color:var(--muted); font-size:.95rem}
+.routeline{
+  margin-top:14px; padding:10px 14px; background:var(--card);
+  border:1px solid var(--line); border-radius:10px;
+  font-size:.85rem; color:var(--muted); overflow-x:auto; white-space:nowrap;
+}
+.routeline b{color:var(--accent); font-weight:600}
+nav.chips{
+  position:sticky; top:0; z-index:10; background:var(--ground);
+  padding:10px 0; margin:8px -16px 0; padding-left:16px; padding-right:16px;
+  display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--line);
+}
+nav.chips a{
+  flex:0 0 auto; text-decoration:none; color:var(--ink);
+  background:var(--chipbg); border-radius:999px; padding:6px 13px;
+  font-size:.83rem; font-weight:600;
+}
+nav.chips a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+section{padding-top:22px}
+section h2{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.22rem; margin:0 0 2px; text-wrap:balance;
+}
+section .sub{color:var(--muted); font-size:.88rem; margin:0 0 12px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:4px 0; margin-bottom:14px; overflow:hidden;
+}
+.row{
+  display:grid; grid-template-columns:58px 1fr; gap:0 12px;
+  padding:12px 14px; border-bottom:1px solid var(--line);
+}
+.row:last-child{border-bottom:none}
+.row .t{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-variant-numeric:tabular-nums; font-size:.83rem; color:var(--accent);
+  font-weight:600; padding-top:2px;
+}
+.row .what{font-weight:650; font-size:.98rem}
+.row .note{color:var(--muted); font-size:.88rem; margin-top:2px}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+.links a{
+  display:inline-block; text-decoration:none; font-size:.8rem; font-weight:650;
+  color:var(--accent); border:1.5px solid var(--accent); border-radius:999px;
+  padding:3px 12px;
+}
+.links a.solid{background:var(--accent); color:var(--accent-ink)}
+.tag{
+  display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em;
+  border-radius:6px; padding:2px 8px; vertical-align:2px; margin-left:6px;
+}
+.tag.booked{background:var(--ok-soft); color:var(--ok)}
+.tag.todo{background:var(--ember-soft); color:var(--ember)}
+.tag.decide{background:var(--chipbg); color:var(--muted)}
+.warn{
+  margin:0 14px 12px; padding:10px 12px; border-radius:10px;
+  background:var(--ember-soft); color:var(--ember); font-size:.86rem; font-weight:550;
+}
+ul.plain{margin:6px 0 10px; padding-left:20px}
+ul.plain li{margin-bottom:6px; font-size:.92rem}
+.check .row{grid-template-columns:1fr auto; align-items:center}
+.check .what{font-size:.93rem}
+.check .note{font-size:.82rem}
+.wx{
+  margin:0 0 12px; padding:9px 12px; border-radius:10px;
+  background:var(--chipbg); font-size:.84rem; color:var(--ink);
+}
+.wx b{color:var(--accent)}
+.wx a{color:var(--accent); font-weight:650; text-decoration:none}
+footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <h1>Pancho &amp; Gloria — Iceland &amp; Amsterdam</h1>
+  <div class="dates">July 12 – 29, 2026 · a week in Iceland with everyone, then Amsterdam at your own pace</div>
+  <div class="routeline"><b>PTY</b> Jul 12 → <b>AMS</b> Jul 13 → <b>REK</b> Jul 13–19 → <b>AMS</b> Jul 19–29 → <b>PTY</b></div>
+  <div class="links" style="margin-top:10px"><a class="solid" href="https://drive.google.com/drive/folders/1tKRno1yzhArpDWW4xgSBMipDlWB0hJe7">📁 All trip documents (Drive)</a></div>
+</header>
+
+<nav class="chips">
+  <a href="#fly">Getting there</a><a href="#iceland">Iceland</a><a href="#jul19">Jul 19</a><a href="#ams">A’dam week</a><a href="#reunion">Reunion</a><a href="#home">Home</a><a href="#todo">To-Do</a>
+</nav>
+
+<section id="fly">
+  <h2>Getting there</h2>
+  <p class="sub">Overnight to Amsterdam, then everyone flies to Iceland together</p>
+  <div class="card">
+    <div class="row"><div class="t">Jul 12</div><div><div class="what">KLM · Panama City → Amsterdam (overnight)</div>
+      <div class="note">Lands Schiphol Monday 12:10. Sleep on the plane — Monday is a long, happy day.</div>
+      <div class="links"><a href="https://drive.google.com/file/d/1lRUmcJ9qbD7HD-ZdfEHWbDF01DXOVFSx/view">📄 KLM Pancho</a><a href="https://drive.google.com/file/d/12pKZW_NDA5pxZmjq9zd158f8M-fLgscA/view">📄 KLM Gloria</a></div>
+    </div></div>
+    <div class="row"><div class="t">Jul 13</div><div><div class="what">Land 12:10 — Juan &amp; Tom are waiting at arrivals</div>
+      <div class="note">Their train from Brussels gets in at 12:03, seven minutes before you land. Relaxed lunch at Schiphol together.</div>
+    </div></div>
+    <div class="row"><div class="t">17:05</div><div><div class="what">Icelandair FI 507 · AMS → Keflavík, arrive 18:20</div>
+      <div class="note">Then ~50 min by rental car to the apartment: Laugavegur 40a, in the middle of everything.</div>
+      <div class="links"><a href="https://drive.google.com/file/d/1gp3qdFFuZ9CsoM0k87gz1GNda8IRLCyb/view">📄 Icelandair tickets</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Laugavegur+40a+Reykjavik">Airbnb map</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="iceland">
+  <h2>Iceland week — Jul 13–19</h2>
+  <p class="sub">All six together · Airbnb “Greenkey”, Laugavegur 40a, Reykjavík</p>
+  <div class="wx">🧳 <b>Packing (Iceland July, 10–14 °C):</b> layers, not heavy coats — light thermal or tee, fleece, and a <b>wind- and waterproof shell</b>. Beanie + thin gloves for the boat and evenings. Shoes with grip, swimsuits (three soaks!), sunglasses — daylight ~20 hrs. No umbrellas, the wind eats them. Forecast: <a href="https://en.vedur.is/">vedur.is</a></div>
+  <div class="card">
+    <div class="row"><div class="t">Tue 14</div><div><div class="what">Easy city day + Blue Lagoon 20:00 <span class="tag booked">BOOKED</span></div>
+      <div class="note">Hop-on-hop-off bus at whatever pace feels good. Evening: the famous milky-blue lagoon — indoor water entry both ways, warm all the way. Home ~23:15 in full daylight.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Blue+Lagoon+Iceland">Blue Lagoon map</a></div>
+    </div></div>
+    <div class="row"><div class="t">Wed 15</div><div><div class="what">Reykjavík — no schedule</div>
+      <div class="note">Hallgrímskirkja tower, the Sun Voyager, Harpa concert hall, lunch at Hlemmur food hall (5-min walk from home). Nice group dinner in the evening.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hallgrimskirkja">Hallgrímskirkja</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hlemmur+Matholl">Hlemmur</a></div>
+    </div></div>
+    <div class="row"><div class="t">Thu 16</div><div><div class="what">Golden Circle drive</div>
+      <div class="note">Þingvellir rift valley (flat, easy paths), the erupting geyser Strokkur, lunch inside a tomato greenhouse at Friðheimar, Gullfoss waterfall (great upper viewpoint, no stairs needed), Kerið crater. Home ~18:00.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Fridheimar+Iceland">Friðheimar</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Gullfoss">Gullfoss</a></div>
+    </div></div>
+    <div class="row"><div class="t">Fri 17</div><div><div class="what">South Coast — waterfalls &amp; black sand</div>
+      <div class="note">Seljalandsfoss, Skógafoss, lunch in Vík, Reynisfjara black beach (stay well back from the water), Dyrhólaey arch with puffins. The windiest day — full layers.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Skogafoss">Skógafoss</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Vik+i+Myrdal+Church">Vík</a></div>
+    </div></div>
+    <div class="row"><div class="t">Sat 18</div><div><div class="what">Hvammsvík hot springs + midnight-sun whales <span class="tag booked">BOOKED</span></div>
+      <div class="note">Afternoon: eight ocean-side hot pools on a fjord, seafood soup served in the water. Evening 20:00: whale-watching in golden light — dress like winter, the boat lends warm overalls. Back ~23:00.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hvammsvik+Hot+Springs">Hvammsvík</a><a href="https://drive.google.com/file/d/1cmy89hAKFSX1a4xhA1fzw44no1aM9mHr/view">📄 Whale ticket</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="jul19">
+  <h2>Sun Jul 19 — fly to Amsterdam</h2>
+  <p class="sub">A last slow Iceland morning, then an easy evening hop</p>
+  <div class="card">
+    <div class="row"><div class="t">a.m.</div><div><div class="what">Pack, long breakfast, goodbyes</div>
+      <div class="note">Apartment checkout 10:00 — luggage can ride in the cars until you head out.</div>
+    </div></div>
+    <div class="row"><div class="t">15:30</div><div><div class="what">Head to Keflavík airport</div>
+      <div class="note">~45 min by car or Flybus. Aim to be inside by <b>16:15</b> — bag-drop closes 17:55 sharp. You have priority boarding and 30 kg checked luggage each.</div>
+      <div class="links"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Laugavegur+40a+Reykjavik&amp;destination=Keflavik+Airport">Route to KEF</a></div>
+    </div></div>
+    <div class="row"><div class="t">18:35</div><div><div class="what">Transavia HV6884 · KEF → Amsterdam <span class="tag booked">BOOKED</span></div>
+      <div class="note">Seats 19B + 19C · lands 23:40. Online check-in opens Saturday ~12:30 — Juan will do it from Iceland.</div>
+      <div class="links"><a href="https://drive.google.com/file/d/1swUGO2-8b1r_5naTmuPFkuv0BCdVfgZ1/view">📄 Booking XGDN2Q</a></div>
+    </div></div>
+    <div class="row"><div class="t">23:40</div><div><div class="what">Land Schiphol → straight to bed</div>
+      <div class="note">Taxi rank is right outside arrivals; hotel details will be on this page once booked.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="ams">
+  <h2>Amsterdam week — Jul 20–25</h2>
+  <p class="sub">One nice thing a day. Cafés, canals, no alarms.</p>
+  <div class="wx">☀️ <b>Typical: 14–22 °C, occasional short showers.</b> Normal summer clothes + one light rain layer + very comfortable shoes (cobblestones + canal-side walking). The Iceland gear stays in the suitcase.</div>
+  <div class="card">
+    <div class="row"><div class="t">—</div><div><div class="what">The gentle menu</div>
+      <ul class="plain">
+        <li><b>Canal cruise</b> (1 hr, covered boats) — best first-day overview</li>
+        <li><b>Rijksmuseum</b> — Rembrandt’s Night Watch (timed ticket)</li>
+        <li><b>Van Gogh Museum</b> — timed ticket, book a late-morning slot</li>
+        <li><b>Jordaan</b> quarter — prettiest streets, coffee + apple pie at Winkel 43</li>
+        <li><b>Albert Cuyp market</b> — stroopwafels made in front of you</li>
+        <li><b>Vondelpark</b> — the city’s garden, benches everywhere</li>
+        <li><b>Bloemenmarkt</b> floating flower market → Begijnhof courtyard</li>
+      </ul>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Rijksmuseum">Rijksmuseum</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Van+Gogh+Museum">Van Gogh</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Winkel+43+Amsterdam">Winkel 43</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Albert+Cuyp+Markt">Albert Cuyp</a></div>
+    </div></div>
+    <div class="row"><div class="t">trips</div><div><div class="what">Easy day trips (all by direct train)</div>
+      <ul class="plain">
+        <li><b>Haarlem</b> — 15 min. Grote Markt, Saturday market, small-town Holland</li>
+        <li><b>Zaanse Schans</b> — 17 min. Working windmills, cheese farm</li>
+        <li><b>Delft</b> — ~1 hr. Vermeer’s town, blue pottery, canals in miniature</li>
+        <li><b>Utrecht</b> — 27 min. Wharf-level canals, Dom tower</li>
+      </ul>
+      <div class="note">Buy nothing in advance — tap a credit card at the station gates, off-peak trains every 10–15 min.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Grote+Markt+Haarlem">Haarlem</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Zaanse+Schans">Zaanse Schans</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Delft+Markt">Delft</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="reunion">
+  <h2>Sun Jul 26 — everyone’s back</h2>
+  <p class="sub">The family arrives in Amsterdam from Rotterdam in the morning</p>
+  <div class="card">
+    <div class="row"><div class="t">midday</div><div><div class="what">Reunion 🎉</div>
+      <div class="note">Juan, Tom, Mike &amp; Danny arrive late morning. Big lunch, canal walk, stories.</div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">Farewell rijsttafel dinner — all six</div>
+      <div class="note">Indonesian feast, the great Dutch tradition. Juan reserves the table.</div>
+    </div></div>
+    <div class="row"><div class="t">Mon 27</div><div><div class="what">Juan &amp; Tom fly home early</div>
+      <div class="note">Mike &amp; Danny are around until Tuesday — museums or one more canal day together.</div>
+    </div></div>
+    <div class="row"><div class="t">Tue 28</div><div><div class="what">Last full day</div>
+      <div class="note">Whatever got missed — or nothing at all. Pack tonight.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="home">
+  <h2>Wed Jul 29 — home</h2>
+  <p class="sub">Direct to Panama City</p>
+  <div class="card">
+    <div class="row"><div class="t">12:55</div><div><div class="what">KLM · AMS → Panama City</div>
+      <div class="note">Be at Schiphol by ~10:00. KLM check-in is in Departures 2.</div>
+      <div class="links"><a href="https://drive.google.com/file/d/1lRUmcJ9qbD7HD-ZdfEHWbDF01DXOVFSx/view">📄 KLM Pancho</a><a href="https://drive.google.com/file/d/12pKZW_NDA5pxZmjq9zd158f8M-fLgscA/view">📄 KLM Gloria</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="todo">
+  <h2>To arrange</h2>
+  <p class="sub">as of Jul 11</p>
+  <div class="card check">
+    <div class="row"><div><div class="what">Amsterdam hotel · Jul 19–29 (10 nights)</div><div class="note">Landing 23:40 on the 19th — an airport hotel for the first night, then the city, is the gentlest split</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Transavia online check-in</div><div class="note">Opens Sat Jul 18 ~12:30 — Juan handles it</div></div><span class="tag decide">JUAN</span></div>
+    <div class="row"><div><div class="what">Rijksmuseum + Van Gogh timed tickets</div><div class="note">Pick the days once the hotel is set</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Reunion dinner · Sun Jul 26 ×6</div><div class="note">Rijsttafel — Juan reserves</div></div><span class="tag decide">JUAN</span></div>
+  </div>
+</section>
+
+<footer>Pancho &amp; Gloria · July 2026 · map pills open Google Maps · 📄 links open Drive (shared-folder access required)</footer>
+</div>
