@@ -1,0 +1,524 @@
+<title>Richard&rsquo;s 90th &middot; New York 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#F7F4F6; --card:#FFFFFF; --ink:#241D24; --muted:#6C5F6B;
+  --accent:#7A3B63; --accent-ink:#FFFFFF; --line:#E4DBE2;
+  --ember:#B5541F; --ember-soft:#F9EBE1; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#EDE4EA;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#151115; --card:#211A21; --ink:#E8DDE6; --muted:#A292A0;
+    --accent:#D08CB6; --accent-ink:#151115; --line:#332831;
+    --ember:#E5854F; --ember-soft:#3A2418; --ok:#6CC493; --ok-soft:#1D3327;
+    --chipbg:#2A212840;
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F7F4F6; --card:#FFFFFF; --ink:#241D24; --muted:#6C5F6B;
+  --accent:#7A3B63; --accent-ink:#FFFFFF; --line:#E4DBE2;
+  --ember:#B5541F; --ember-soft:#F9EBE1; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#EDE4EA;
+}
+:root[data-theme="dark"]{
+  --ground:#151115; --card:#211A21; --ink:#E8DDE6; --muted:#A292A0;
+  --accent:#D08CB6; --accent-ink:#151115; --line:#332831;
+  --ember:#E5854F; --ember-soft:#3A2418; --ok:#6CC493; --ok-soft:#1D3327;
+  --chipbg:#2A212840;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.5;
+}
+.wrap{max-width:640px; margin:0 auto; padding:0 16px 64px}
+header.hero{padding:28px 0 12px}
+.hero h1{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.7rem; line-height:1.2; margin:0 0 4px; text-wrap:balance;
+}
+.hero .dates{color:var(--muted); font-size:.95rem}
+.routeline{
+  margin-top:14px; padding:10px 14px; background:var(--card);
+  border:1px solid var(--line); border-radius:10px;
+  font-size:.85rem; color:var(--muted); overflow-x:auto; white-space:nowrap;
+}
+.routeline b{color:var(--accent); font-weight:600}
+nav.chips{
+  position:sticky; top:0; z-index:10; background:var(--ground);
+  padding:10px 0; margin:8px -16px 0; padding-left:16px; padding-right:16px;
+  display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--line);
+}
+nav.chips a{
+  flex:0 0 auto; text-decoration:none; color:var(--ink);
+  background:var(--chipbg); border-radius:999px; padding:6px 13px;
+  font-size:.83rem; font-weight:600;
+}
+nav.chips a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+section{padding-top:22px}
+section h2{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.22rem; margin:0 0 2px; text-wrap:balance;
+}
+section .sub{color:var(--muted); font-size:.88rem; margin:0 0 12px}
+.cat{
+  font-size:.74rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--accent); margin:16px 0 6px;
+}
+.cat:first-of-type{margin-top:4px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:4px 0; margin-bottom:14px; overflow:hidden;
+}
+.row{
+  display:grid; grid-template-columns:58px 1fr; gap:0 12px;
+  padding:12px 14px; border-bottom:1px solid var(--line);
+}
+.row:last-child{border-bottom:none}
+.row .t{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-variant-numeric:tabular-nums; font-size:.83rem; color:var(--accent);
+  font-weight:600; padding-top:2px;
+}
+.row .what{font-weight:650; font-size:.98rem}
+.row .note{color:var(--muted); font-size:.88rem; margin-top:2px}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+.links a{
+  display:inline-block; text-decoration:none; font-size:.8rem; font-weight:650;
+  color:var(--accent); border:1.5px solid var(--accent); border-radius:999px;
+  padding:3px 12px;
+}
+.links a.solid{background:var(--accent); color:var(--accent-ink)}
+.tag{
+  display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em;
+  border-radius:6px; padding:2px 8px; vertical-align:2px; margin-left:6px;
+}
+.tag.booked{background:var(--ok-soft); color:var(--ok)}
+.tag.todo{background:var(--ember-soft); color:var(--ember)}
+.tag.decide{background:var(--chipbg); color:var(--muted)}
+.warn{
+  margin:0 14px 12px; padding:10px 12px; border-radius:10px;
+  background:var(--ember-soft); color:var(--ember); font-size:.86rem; font-weight:550;
+}
+ul.plain{margin:6px 0 10px; padding-left:20px}
+ul.plain li{margin-bottom:6px; font-size:.92rem}
+.check .row{grid-template-columns:1fr auto; align-items:center}
+.check .what{font-size:.93rem}
+.check .note{font-size:.82rem}
+.wx{
+  margin:0 0 12px; padding:9px 12px; border-radius:10px;
+  background:var(--chipbg); font-size:.84rem; color:var(--ink);
+}
+.wx b{color:var(--accent)}
+.wx a{color:var(--accent); font-weight:650; text-decoration:none}
+footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <h1>Richard&rsquo;s 90th &middot; New York</h1>
+  <div class="dates">October 14 &ndash; 21, 2026 &middot; Tom &amp; Juan<br>Dick turns 90 on Mon Oct 12 &middot; the family gathers around the weekend of Oct 16&ndash;18</div>
+  <div class="routeline"><b>Wed 14</b> Tom&amp;Juan in &rarr; <b>Thu 15</b> Dick&amp;Carole &rarr; <b>Fri 16</b> La Bohème &middot; Christine&amp;Chelsey &rarr; <b>Sat 17</b> Karen&middot;Kristin&middot;Soyrings &rarr; <b>Sun 18</b> everyone &rarr; <b>Wed 21</b> out</div>
+</header>
+
+<nav class="chips">
+  <a href="#base">Base</a><a href="#wed14">Wed 14</a><a href="#thu15">Thu 15</a><a href="#fri16">Fri 16</a><a href="#sat17">Sat 17</a><a href="#sun18">Sun 18</a><a href="#mon19">Mon 19</a><a href="#tue20">Tue 20</a><a href="#wed21">Wed 21</a><a href="#eats">Eats</a><a href="#do">To Do</a><a href="#todo">Checklist</a>
+</nav>
+
+<section id="base">
+  <h2>Base camp</h2>
+  <p class="sub">Fairfield Inn &amp; Suites New York Manhattan/Chelsea &middot; 116 W 28th St &middot; 212-206-0998</p>
+  <div class="wx">📍 <b>Where we actually are:</b> the block is NoMad, not really Chelsea. <b>Koreatown is four blocks north</b> on W 32nd St &mdash; which solves Dad&rsquo;s Korean-lunch wish without a subway ride. Herald Square/Macy&rsquo;s 5 min, Empire State 6 min, Flatiron 8 min, Madison Square Park 8 min. Trains at 28th St: <b>1</b> (7th Av), <b>N R W</b> (Broadway), <b>6</b> (Park Av S) &mdash; three lines within two blocks.</div>
+  <div class="card">
+    <div class="row"><div class="t">Us</div><div><div class="what">Tom &amp; Juan &mdash; Fairfield Chelsea <span class="tag todo">BOOK</span></div>
+      <div class="note">Oct 14&ndash;21, 7 nights. Dad asked us directly on Aug 7 whether we&rsquo;d booked; still unanswered. The family block is filling &mdash; the Soyrings already took two rooms.</div>
+      <div class="links"><a class="solid" href="https://www.marriott.com/en-us/hotels/nyctw-fairfield-inn-and-suites-new-york-manhattan-chelsea/overview/">Book at Marriott</a><a href="https://www.google.com/maps/search/?api=1&amp;query=116+W+28th+St+New+York">Map</a></div>
+    </div></div>
+    <div class="row"><div class="t">Dad</div><div><div class="what">Dick &amp; Carole &mdash; Fairfield Chelsea</div>
+      <div class="note">&ldquo;Ready to book there again.&rdquo; Arriving Oct 15 or 16, out Oct 20 or 21.</div>
+    </div></div>
+    <div class="row"><div class="t">Bru</div><div><div class="what">Karen, Craig &amp; Rosalind &mdash; Ace Hotel</div>
+      <div class="note">Around the corner (20 W 29th St). Oct 17 &rarr; Oct 23 &mdash; staying on to scout Rosalind&rsquo;s NY internship.</div>
+      <div class="links"><a href="https://acehotel.com/new-york/">acehotel.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">Ben</div><div><div class="what">Benjamin, Yongsun &amp; Jasung &mdash; Kimpton Eventi</div>
+      <div class="note">851 Sixth Av, work-related rate. Dates still TBD. &ldquo;I will get a hotel near everyone when the time comes.&rdquo;</div>
+    </div></div>
+    <div class="row"><div class="t">Rest</div><div><div class="what">Christine &amp; Chelsey &middot; Kristin &amp; Greg &middot; Soyrings</div>
+      <div class="note">All likely or confirmed at the Fairfield. Sue Soyring booked two rooms; Bruce, Moriah and Chris with her, Joanna trying.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="wed14">
+  <h2>Wed Oct 14 &mdash; Arrive</h2>
+  <p class="sub">Two clear days before anything is scheduled.</p>
+  <div class="card">
+    <div class="warn">⚠️ Dad&rsquo;s planning doc lists us as &ldquo;Oct. 14 (Thurs)&rdquo; &mdash; but Oct 14 is a <b>Wednesday</b>. Every other date in his table checks out, so this is either a typo or he means Thu the 15th. Worth settling before anyone books flights.</div>
+    <div class="row"><div class="t">day</div><div><div class="what">Flights <span class="tag todo">BOOK</span></div>
+      <div class="note">Nothing discussed in email yet. Peak fall foliage season into NYC &mdash; book early.</div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">Settle in &middot; easy first night</div>
+      <div class="note">Koreatown is four blocks up. Or walk the High Line end at 30th St, ten minutes west.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Koreatown+W+32nd+St+New+York">K-town</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="thu15">
+  <h2>Thu Oct 15 &mdash; Free</h2>
+  <p class="sub">Dick &amp; Carole arrive (or Fri). Nothing on the family calendar.</p>
+  <div class="card">
+    <div class="row"><div class="t">idea</div><div><div class="what">The best museum day of the week</div>
+      <div class="note">Everything is open on a Thursday except the Guggenheim, which has been closing Thursdays. This is the day to do the Whitney or the Morgan &mdash; both shut on Monday, when the family plans its museum day.</div>
+      <div class="links"><a href="#do">See museum roster ↓</a></div>
+    </div></div>
+    <div class="row"><div class="t">new</div><div><div class="what">Frick reopens the Siena bronzes today</div>
+      <div class="note">&ldquo;Siena: The Art of Bronze, 1450&ndash;1500&rdquo; opens Oct 15 &mdash; forty works, most never shown outside Tuscany.</div>
+      <div class="links"><a href="https://www.frick.org/exhibitions">frick.org</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="fri16">
+  <h2>Fri Oct 16 &mdash; La Bohème</h2>
+  <p class="sub">The one fixed point of the whole trip.</p>
+  <div class="card">
+    <div class="row"><div class="t">19:30</div><div><div class="what">La Bohème &middot; Metropolitan Opera <span class="tag booked">BOOKED</span></div>
+      <div class="note">Four tickets bought by Dad on Aug 14: <b>Dick, Carole, Tom, Juan</b>. Lincoln Center, 30 Lincoln Center Plaza. Karen&rsquo;s family and Christine both declined. Doors and bars open ~90 min early; the Met runs long &mdash; plan a late or a pre-theatre dinner, not both.</div>
+      <div class="links"><a class="solid" href="https://www.metopera.org/">metopera.org</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Metropolitan+Opera+House+Lincoln+Center">Map</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=116+W+28th+St+New+York&amp;destination=Metropolitan+Opera+House&amp;travelmode=transit">1 train &rarr; 66th St</a></div>
+    </div></div>
+    <div class="row"><div class="t">17:00</div><div><div class="what">Pre-opera dinner <span class="tag todo">RESERVE</span></div>
+      <div class="note">Lincoln Center area fills up on a Friday. Book by early October.</div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">Christine &amp; Chelsey land</div>
+      <div class="note">In Friday evening, out midday Tuesday the 20th.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="sat17">
+  <h2>Sat Oct 17 &mdash; The big arrival day</h2>
+  <p class="sub">Karen&rsquo;s family, Kristin &amp; Greg, and the Soyrings all land.</p>
+  <div class="card">
+    <div class="row"><div class="t">13/14</div><div><div class="what">Matinee <span class="tag decide">DECIDE</span></div>
+      <div class="note">Dad&rsquo;s doc: <b>Buena Vista Social Club 2:00</b>, or <b>Hamilton 1:00</b>, or open to suggestions. Whoever has landed in time. Karen: &ldquo;Saturday evening we probably won&rsquo;t have much energy for anything but dinner.&rdquo;</div>
+      <div class="links"><a href="https://www.broadway.com/">broadway.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">Family dinner &mdash; possibly The View <span class="tag todo">RESERVE</span></div>
+      <div class="note">This is the big one. Dad flagged that &ldquo;the common dinner would likely be Saturday night,&rdquo; and that evening dinners matter more to the family than stacking more shows. Party of 12&ndash;20 &mdash; needs a real reservation, not a walk-in.</div>
+      <div class="links"><a href="https://www.theviewnewyorkcity.com/">theviewnewyorkcity.com</a><a href="#eats">Other big-table options ↓</a></div>
+    </div></div>
+    <div class="row"><div class="t">?</div><div><div class="what">Hell&rsquo;s Kitchen &mdash; ours or the group&rsquo;s? <span class="tag decide">DECIDE</span></div>
+      <div class="note">Dad, Aug 29: &ldquo;If you want to save Hell&rsquo;s Kitchen for your anniversary, we can go elsewhere Saturday night.&rdquo; He&rsquo;s offered to move the group. Answer him.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="sun18">
+  <h2>Sun Oct 18 &mdash; Everyone in town</h2>
+  <p class="sub">The only day the whole family overlaps.</p>
+  <div class="card">
+    <div class="row"><div class="t">14:00</div><div><div class="what">Chicago &mdash; all <span class="tag decide">CONFIRM</span></div>
+      <div class="note">Dad&rsquo;s pick for the whole group, $100&ndash;300+. He asked whether to buy as a block; Sue Soyring asked the same and got no answer. Somebody needs to close this loop.</div>
+      <div class="links"><a href="https://www.broadway.com/">broadway.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">—</div><div><div class="what">No second show</div>
+      <div class="note">Dad floated two shows on Sunday; Karen shot it down &mdash; &ldquo;will cut into time we could actually catch up with each other.&rdquo; Dad accepted.</div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">Family dinner <span class="tag todo">RESERVE</span></div>
+      <div class="note">Soyrings leave after this one. Biggest headcount of the trip.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="mon19">
+  <h2>Mon Oct 19 &mdash; Museums</h2>
+  <p class="sub">Kristin &amp; Greg depart. Dad left this day loose on purpose.</p>
+  <div class="card">
+    <div class="warn">⚠️ <b>Monday is the worst museum day in New York.</b> The Whitney (Lichtenstein), the Morgan and the Brooklyn Museum are all normally closed Mondays. The Met, MoMA, Guggenheim and Frick <em>are</em> open. If anyone wants the Lichtenstein or the Morgan, do it Thu 15 or Tue 20 instead.</div>
+    <div class="row"><div class="t">day</div><div><div class="what">Pick from the roster</div>
+      <div class="note">Met, MoMA, Guggenheim and the Frick all work on a Monday &mdash; and all four have a strong show up that week.</div>
+      <div class="links"><a href="#do">Museum roster ↓</a></div>
+    </div></div>
+    <div class="row"><div class="t">eve</div><div><div class="what">The Great Gatsby? <span class="tag decide">DECIDE</span></div>
+      <div class="note">Dad: &ldquo;selling tickets, but we can decide closer to the date which shows may be open that night.&rdquo; Most Broadway houses go dark Monday; off-Broadway is likelier.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="tue20">
+  <h2>Tue Oct 20 &mdash; Last show</h2>
+  <p class="sub">Christine &amp; Chelsey out midday. Dick &amp; Carole out today or tomorrow.</p>
+  <div class="card">
+    <div class="row"><div class="t">19:00</div><div><div class="what">Operation Mincemeat / Schmigadoon / Hamilton <span class="tag decide">DECIDE</span></div>
+      <div class="note">Karen, speaking only for herself: &ldquo;Operation Mincemeat could be fun.&rdquo; Nothing booked.</div>
+    </div></div>
+    <div class="row"><div class="t">day</div><div><div class="what">Whitney is open again</div>
+      <div class="note">If Monday&rsquo;s closures got in the way, Tuesday is the Whitney&rsquo;s normal dark day too &mdash; check the calendar before counting on it. The Met and MoMA are safe.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="wed21">
+  <h2>Wed Oct 21 &mdash; Out</h2>
+  <div class="card">
+    <div class="row"><div class="t">—</div><div><div class="what">Tom &amp; Juan depart</div>
+      <div class="note">Karen, Craig and Rosalind stay through Fri Oct 23.</div>
+    </div></div>
+    <div class="row"><div class="t">note</div><div><div class="what">We just miss two openings</div>
+      <div class="note">MoMA&rsquo;s Brancusi opens Oct 25 and the Met&rsquo;s Tiffany drawings open Oct 22 &mdash; both a day or four after we fly. Nothing to do about it, but don&rsquo;t go looking for them.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="eats">
+  <h2>Restaurants</h2>
+  <p class="sub">Juan owns this. Dad, Sep 2: he wants <b>one Korean meal</b>, probably lunch &mdash; he vetted picks with Yongsun and she was pleased. He also forwarded the NYT &ldquo;Where to eat in NYC right now.&rdquo;</p>
+
+  <div class="wx">🍽 <b>Two different problems.</b> The <b>family dinners</b> (Sat and Sun) are 12&ndash;20 people and need real reservations booked weeks out &mdash; that rules out most of the small places below. The <b>rest</b> are for the two of us and small splinter groups. Book the big two first.</div>
+
+  <p class="cat">Rooftop &amp; view</p>
+  <div class="card">
+    <div class="row"><div class="t">BKN</div><div><div class="what">The River Café</div>
+      <div class="note">Under the Brooklyn Bridge, the classic Manhattan-skyline view. Jacket required, prix fixe, books out furthest of anything on this list.</div>
+      <div class="links"><a href="https://www.rivercafe.com/">rivercafe.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">BKN</div><div><div class="what">Celestine</div>
+      <div class="note">DUMBO, Mediterranean, same bridge view for a third of the price. Easier group booking.</div>
+      <div class="links"><a href="http://celestinebk.com/">celestinebk.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">FiDi</div><div><div class="what">SAGA</div>
+      <div class="note">63rd floor of 70 Pine. Tasting menu; the bar (Overstory) upstairs is the cheaper way in.</div>
+      <div class="links"><a href="http://saga-nyc.com/">saga-nyc.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">HY</div><div><div class="what">Peak</div>
+      <div class="note">101st floor, Hudson Yards. Big private-event capacity &mdash; a genuine candidate for the Saturday family dinner.</div>
+      <div class="links"><a href="https://www.peaknyc.com/">peaknyc.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">MID</div><div><div class="what">The View <span class="tag decide">DAD&rsquo;S PICK</span></div>
+      <div class="note">Revolving, Times Square, Marriott Marquis. Dad has already floated this for the Saturday dinner and the family ate here on the last trip.</div>
+      <div class="links"><a href="https://www.theviewnewyorkcity.com/">theviewnewyorkcity.com</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Bar</p>
+  <div class="card">
+    <div class="row"><div class="t">HY</div><div><div class="what">Dear Irving on Hudson</div>
+      <div class="note">Aman-adjacent, 40th floor of the Aliz Hotel. Cocktails with the skyline; good pre- or post-theatre.</div>
+      <div class="links"><a href="https://www.dearirving.com/dear-irving-on-hudson">dearirving.com</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Park seating</p>
+  <div class="card">
+    <div class="row"><div class="t">MID</div><div><div class="what">Bryant Park Grill</div>
+      <div class="note">Behind the library, 15-min walk from the hotel. Handles large parties well and mid-October on the terrace is the whole point.</div>
+      <div class="links"><a href="https://bryantparkgrillnyc.com/">bryantparkgrillnyc.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">CP</div><div><div class="what">Central Park Boathouse</div>
+      <div class="note">Reopened 2024 under Legends; lunch and dinner daily, lakeside. Pairs naturally with a Met or Guggenheim day.</div>
+      <div class="links"><a href="https://centralparkboathouse.com/restaurant-menu/">centralparkboathouse.com</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Dim sum</p>
+  <div class="card">
+    <div class="row"><div class="t">CT</div><div><div class="what">Ping&rsquo;s Seafood</div>
+      <div class="note">Elizabeth St. Cart service on weekends; the Sunday-morning version is the real experience.</div>
+      <div class="links"><a href="https://pingsnewyork.com/index.html">pingsnewyork.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">CT</div><div><div class="what">Golden Unicorn</div>
+      <div class="note">Big banquet floors on East Broadway &mdash; the one dim sum room here that can actually seat the whole family.</div>
+      <div class="links"><a href="https://www.goldenunicornrestaurant.com/">goldenunicornrestaurant.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">CT</div><div><div class="what">Nom Wah Tea Parlor <span class="tag decide">ADDED</span></div>
+      <div class="note">1920 on Doyers St, the oldest in Chinatown. Tiny, no carts, order off a sheet. This is the hole-in-the-wall version.</div>
+      <div class="links"><a href="https://nomwah.com/">nomwah.com</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Michelin</p>
+  <div class="card">
+    <div class="row"><div class="t">★★★</div><div><div class="what">Eleven Madison Park</div>
+      <div class="note">Madison Square Park &mdash; an <b>8-minute walk from the hotel</b>. Plant-based tasting menu. Reservations release on a fixed calendar; set a reminder.</div>
+      <div class="links"><a href="https://www.elevenmadisonpark.com/">elevenmadisonpark.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">★</div><div><div class="what">Yingtao</div>
+      <div class="note">Chelsea, modern Chinese tasting menu. Small room &mdash; two or four, not twelve.</div>
+      <div class="links"><a href="http://yingtaonyc.com/">yingtaonyc.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">★</div><div><div class="what">Café Boulud</div>
+      <div class="note">Upper East Side, 76th St. The most Dad-and-Carole-friendly of the three, and close to the Met and Frick.</div>
+      <div class="links"><a href="https://www.cafeboulud.com/nyc/">cafeboulud.com</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Korean &mdash; for Dad</p>
+  <div class="card">
+    <div class="warn">Dad has already picked a Korean restaurant with Yongsun&rsquo;s blessing and plans to go &ldquo;perhaps for lunch.&rdquo; <b>Ask him which one</b> before booking anything here. These are the K-town standards, all a four-block walk.</div>
+    <div class="row"><div class="t">4 blk</div><div><div class="what">Jongro BBQ <span class="tag decide">ADDED</span></div>
+      <div class="note">W 32nd St. The K-town tabletop-grill benchmark. Expect a wait at dinner; lunch is calm.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Jongro+BBQ+New+York">Map</a></div>
+    </div></div>
+    <div class="row"><div class="t">4 blk</div><div><div class="what">Her Name is Han <span class="tag decide">ADDED</span></div>
+      <div class="note">Home-style rather than barbecue, calmer room, no smoke. Much better for a 90-year-old&rsquo;s lunch than a grill table.</div>
+      <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Her+Name+is+Han+New+York">Map</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Hole in the wall &amp; institutions <span style="font-weight:600;text-transform:none;letter-spacing:0;color:var(--muted)">— my additions, verify before you count on one</span></p>
+  <div class="card">
+    <div class="row"><div class="t">LES</div><div><div class="what">Katz&rsquo;s Delicatessen</div>
+      <div class="note">205 E Houston, since 1888. Pastrami on rye, cash-era ticket system, no reservations, no ceremony. The single most New York lunch available.</div>
+      <div class="links"><a href="https://katzsdelicatessen.com/">katzsdelicatessen.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">LES</div><div><div class="what">Russ &amp; Daughters</div>
+      <div class="note">Appetizing counter, 1914. Standing room only at the shop; the Orchard St café has tables and takes a wait.</div>
+      <div class="links"><a href="https://www.russanddaughters.com/">russanddaughters.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">EV</div><div><div class="what">Veselka</div>
+      <div class="note">Second Av, Ukrainian, pierogi and borscht at any hour. Cheap, warm, and open when nothing else is.</div>
+      <div class="links"><a href="https://www.veselka.com/">veselka.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">MID</div><div><div class="what">Keens Steakhouse</div>
+      <div class="note">36th St &mdash; <b>9-minute walk</b>. 1885, clay pipes on the ceiling, mutton chop. Not cheap, but it is the closest thing to time travel in midtown and it seats a big table.</div>
+      <div class="links"><a href="https://www.keens.com/">keens.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">MID</div><div><div class="what">Grand Central Oyster Bar</div>
+      <div class="note">Vaulted tile basement of Grand Central, 1913. Sit at the counter, not in the dining room.</div>
+      <div class="links"><a href="https://www.oysterbarny.com/">oysterbarny.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">CHE</div><div><div class="what">Los Tacos No. 1</div>
+      <div class="note">Chelsea Market, 12-min walk. Standing counter, adobada off the trompo, under $5 a taco. Pairs with the High Line and the Whitney.</div>
+      <div class="links"><a href="https://www.lostacos1.com/">lostacos1.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">VIL</div><div><div class="what">Joe&rsquo;s Pizza</div>
+      <div class="note">Carmine St, 1975. A plate, folded, on the sidewalk. Two minutes, three dollars.</div>
+      <div class="links"><a href="https://www.joespizzanyc.com/">joespizzanyc.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">multi</div><div><div class="what">Xi&rsquo;an Famous Foods</div>
+      <div class="note">Hand-ripped lamb noodles, numbing and fierce. Counter service, ten locations, no reservations ever.</div>
+      <div class="links"><a href="https://www.xianfoods.com/">xianfoods.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">UWS</div><div><div class="what">Barney Greengrass</div>
+      <div class="note">Amsterdam Av, &ldquo;The Sturgeon King,&rdquo; 1908. Formica tables and sturgeon &mdash; the right breakfast before the Met or the AMNH.</div>
+      <div class="links"><a href="https://www.barneygreengrass.com/">barneygreengrass.com</a></div>
+    </div></div>
+    <div class="row"><div class="t">FLA</div><div><div class="what">S&amp;P Lunch</div>
+      <div class="note">174 Fifth Av, 10-min walk &mdash; the old Eisenberg&rsquo;s counter, revived. Tuna salad and a chocolate egg cream at a 1929 lunch counter.</div>
+      <div class="links"><a href="https://www.sandplunch.com/">sandplunch.com</a></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="do">
+  <h2>Things to do</h2>
+  <p class="sub">Museums, with what&rsquo;s actually up during Oct 14&ndash;21, 2026. Left column is travel time from the hotel.</p>
+
+  <div class="wx">🗓 <b>Closure days matter more than usual here.</b> The Met closes Wednesdays. The Guggenheim has been closing Thursdays. The Whitney, the Morgan and the Brooklyn Museum close Mondays &mdash; which is exactly the day Dad set aside for museums. Confirm each one&rsquo;s calendar the week before.</div>
+
+  <p class="cat">The big four</p>
+  <div class="card">
+    <div class="row"><div class="t">6 · 15m</div><div><div class="what">The Met &mdash; Fifth Av at 82nd</div>
+      <div class="note"><b>Krasner and Pollock: Past Continuous</b> (opens Oct 4) is the headline &mdash; the two of them traced side by side. Also up: <b>Orientalism: Between Fact and Fantasy</b>, <b>A King&rsquo;s Carpet: Louis XIV and the Savonnerie</b>, <b>Chasing Clouds</b>, <b>Si Lewen&rsquo;s Parade</b>, and Liu Wei on the facade. <b>Closed Wednesdays.</b></div>
+      <div class="links"><a href="https://www.metmuseum.org/exhibitions">Exhibitions</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=116+W+28th+St+New+York&amp;destination=Metropolitan+Museum+of+Art&amp;travelmode=transit">Route</a></div>
+    </div></div>
+    <div class="row"><div class="t">NRW·12m</div><div><div class="what">MoMA &mdash; W 53rd St</div>
+      <div class="note"><b>The Surrealist Book: Tomorrow Lives in Mirrors</b> (opens Oct 4). Plus <b>Full Disclosure: The Edge of Information Design</b> and <b>Taking Back Our Space: Photographic Perspectives</b>. Brancusi opens Oct 25 &mdash; four days too late for us. Open daily.</div>
+      <div class="links"><a href="https://www.moma.org/calendar/exhibitions">Exhibitions</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=116+W+28th+St+New+York&amp;destination=Museum+of+Modern+Art+New+York&amp;travelmode=transit">Route</a></div>
+    </div></div>
+    <div class="row"><div class="t">6 · 18m</div><div><div class="what">Guggenheim &mdash; Fifth Av at 89th</div>
+      <div class="note"><b>Taryn Simon: Father Country I Do Love You</b> in the rotunda, and the big <b>Pop</b> survey running through January. The building is the exhibit. <b>Has been closing Thursdays.</b></div>
+      <div class="links"><a href="https://www.guggenheim.org/exhibitions">Exhibitions</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=116+W+28th+St+New+York&amp;destination=Solomon+R+Guggenheim+Museum&amp;travelmode=transit">Route</a></div>
+    </div></div>
+    <div class="row"><div class="t">1 · 12m</div><div><div class="what">Whitney &mdash; Gansevoort St</div>
+      <div class="note"><b>Roy Lichtenstein: Like New</b> opens Oct 11 &mdash; 130+ works, and it reunites all eight pieces from his 1962 Castelli debut for the first time. Also <b>Minnie Evans: The Lost World</b> and <b>Coumba Samba</b>. <b>Normally closed Mon &amp; Tue</b> &mdash; do it Thursday. Walk the High Line back.</div>
+      <div class="links"><a href="https://whitney.org/exhibitions">Exhibitions</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=116+W+28th+St+New+York&amp;destination=Whitney+Museum+of+American+Art&amp;travelmode=walking">Route</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Close to the hotel</p>
+  <div class="card">
+    <div class="row"><div class="t">8m walk</div><div><div class="what">The Morgan Library &amp; Museum &mdash; 36th &amp; Madison</div>
+      <div class="note">The closest serious museum to us. <b>Hujar: Contact</b> and <b>Friends Who Came to See Me: Ashbery&rsquo;s collection</b> both close Oct 25, so this week is the last call. McKim&rsquo;s original library room alone is worth the ticket. <b>Closed Mondays.</b></div>
+      <div class="links"><a href="https://www.themorgan.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+    <div class="row"><div class="t">5m walk</div><div><div class="what">Poster House &mdash; W 23rd St</div>
+      <div class="note">Small, sharp, cheap, and five minutes away. <b>Reading Under Fire: Arming Minds &amp; Hearts During Wartime</b> runs to Nov 1. A good hour when a big museum is too much.</div>
+      <div class="links"><a href="https://posterhouse.org/">posterhouse.org</a></div>
+    </div></div>
+    <div class="row"><div class="t">10m walk</div><div><div class="what">Empire State Building &middot; Flatiron &middot; Madison Sq Park</div>
+      <div class="note">All within a ten-minute radius. The ESB observatory at dusk is the least-effort &ldquo;view&rdquo; option if the rooftop restaurants don&rsquo;t come together.</div>
+    </div></div>
+  </div>
+
+  <p class="cat">Worth the trip</p>
+  <div class="card">
+    <div class="row"><div class="t">6 · 20m</div><div><div class="what">The Frick Collection &mdash; 70th &amp; Fifth</div>
+      <div class="note"><b>Siena: The Art of Bronze, 1450&ndash;1500</b> opens <b>Oct 15</b>, the day after we land &mdash; forty Renaissance bronzes, most never shown outside Tuscany. In the restored mansion. Open Mondays.</div>
+      <div class="links"><a href="https://www.frick.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+    <div class="row"><div class="t">1 · 15m</div><div><div class="what">American Museum of Natural History &mdash; 79th &amp; CPW</div>
+      <div class="note">The Gilder Center, the blue whale, the Hayden Planetarium space show. The obvious pick if Jasung is along.</div>
+      <div class="links"><a href="https://www.amnh.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+    <div class="row"><div class="t">23 · 35m</div><div><div class="what">Brooklyn Museum &mdash; Eastern Parkway</div>
+      <div class="note">A deep bench that week: <b>Art of Manga</b> and <b>Manga Before Manga</b> (both from Oct 3), <b>Cézanne to Modigliani: the Pearlman Collection</b>, <b>Hopi Kachina Dolls</b>, and <b>Michael Richards: Free F&rsquo;All</b>. <b>Closed Mon &amp; Tue.</b> Pair with dinner at Celestine or the River Café.</div>
+      <div class="links"><a href="https://www.brooklynmuseum.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+    <div class="row"><div class="t">6 · 22m</div><div><div class="what">The Jewish Museum &mdash; 92nd &amp; Fifth</div>
+      <div class="note"><b>Women of the Wiener Werkstätte</b> (to Nov 15) and <b>Fragments of Memory</b>. Small, and a natural add-on to a Met or Guggenheim morning.</div>
+      <div class="links"><a href="https://thejewishmuseum.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+    <div class="row"><div class="t">NRW·15m</div><div><div class="what">Museum of Arts and Design &mdash; Columbus Circle</div>
+      <div class="note"><b>Nike: Form Follows Motion</b>, a full design survey. Ten minutes from Lincoln Center &mdash; stackable with the opera day.</div>
+      <div class="links"><a href="https://madmuseum.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+    <div class="row"><div class="t">6 · 25m</div><div><div class="what">Museum of the City of New York &mdash; 103rd &amp; Fifth</div>
+      <div class="note"><b>Halumii Ktapihna: Lenape Legacies and Futures</b> opened Sep 25. The permanent <em>Timescapes</em> film is the best 30-minute primer on the city there is.</div>
+      <div class="links"><a href="https://www.mcny.org/exhibitions">Exhibitions</a></div>
+    </div></div>
+  </div>
+
+  <p class="cat">Not a museum</p>
+  <div class="card">
+    <div class="row"><div class="t">walk</div><div><div class="what">The High Line &rarr; Little Island</div>
+      <div class="note">Enter at 30th St, ten minutes west of the hotel. Mid-October is the best light of the year on it. Exits at Gansevoort right at the Whitney.</div>
+    </div></div>
+    <div class="row"><div class="t">free</div><div><div class="what">Staten Island Ferry</div>
+      <div class="note">Free, 25 minutes each way, passes the Statue of Liberty. The cheapest good view in the city and it works for any mobility level.</div>
+    </div></div>
+    <div class="row"><div class="t">idea</div><div><div class="what">Grand Central &rarr; NY Public Library &rarr; Bryant Park</div>
+      <div class="note">One flat 20-minute walk that strings together three landmarks and ends at a table outdoors. Good for a day with Dick and Carole.</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="todo">
+  <h2>Checklist</h2>
+  <p class="sub">Ordered by urgency · as of Sep 6, 2026</p>
+  <div class="card check">
+    <div class="row"><div><div class="what">Fairfield Chelsea · Oct 14&ndash;21 ×1 room</div><div class="note">Dad asked Aug 7 and got no answer. Block is filling.</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Reply to Dad</div><div class="note">Hotel · Hell&rsquo;s Kitchen vs. Saturday group dinner · which Korean place he picked</div></div><span class="tag todo">SEND</span></div>
+    <div class="row"><div><div class="what">Settle the arrival date</div><div class="note">His doc says &ldquo;Oct. 14 (Thurs)&rdquo; — Oct 14 is a Wednesday. Wed 14 or Thu 15?</div></div><span class="tag decide">ASK</span></div>
+    <div class="row"><div><div class="what">Flights DEN/LAX → NYC</div><div class="note">Nothing discussed yet. Peak season.</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">Saturday family dinner ×12–20</div><div class="note">The View, Peak, Bryant Park Grill or Keens all hold a party this size</div></div><span class="tag todo">RESERVE</span></div>
+    <div class="row"><div><div class="what">Sunday family dinner</div><div class="note">Largest headcount of the trip — Soyrings leave right after</div></div><span class="tag todo">RESERVE</span></div>
+    <div class="row"><div><div class="what">Chicago · Sun 18, 2:00</div><div class="note">Is Dad buying a block? Sue Soyring asked and never got an answer.</div></div><span class="tag decide">CONFIRM</span></div>
+    <div class="row"><div><div class="what">Saturday matinee: Buena Vista or Hamilton</div><div class="note">Whoever has landed in time</div></div><span class="tag decide">DECIDE</span></div>
+    <div class="row"><div><div class="what">Tuesday show: Operation Mincemeat?</div><div class="note">Karen&rsquo;s preference; nothing held</div></div><span class="tag decide">DECIDE</span></div>
+    <div class="row"><div><div class="what">Eleven Madison Park</div><div class="note">If we want it — reservations release on a fixed calendar, set a reminder</div></div><span class="tag todo">BOOK</span></div>
+    <div class="row"><div><div class="what">La Bohème · Fri 16, 7:30</div><div class="note">Dick, Carole, Tom, Juan — Dad bought 4 on Aug 14</div></div><span class="tag booked">BOOKED</span></div>
+    <div class="row"><div><div class="what">Drive folder for trip documents</div><div class="note">Like the Iceland one — then link it from the header here</div></div><span class="tag todo">MAKE</span></div>
+  </div>
+  <p class="sub">Pay travel bookings on Chase Sapphire Preferred (trip protection). Always pay in local currency, never the USD conversion offer.</p>
+</section>
+
+<footer>Richard&rsquo;s 90th · New York, October 2026 · exhibition dates verified Sep 2026 — confirm museum closure days the week before · map pills open Google Maps</footer>
+</div>
