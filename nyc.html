@@ -122,6 +122,7 @@ section .sub{color:var(--muted); font-size:.88rem; margin:0 0 12px}
 .tag.booked{background:var(--ok-soft); color:var(--ok)}
 .tag.todo{background:var(--ember-soft); color:var(--ember)}
 .tag.decide{background:var(--chipbg); color:var(--muted)}
+.tag.price{background:var(--chipbg); color:var(--accent); font-variant-numeric:tabular-nums}
 .warn{
   margin:0 14px 12px; padding:10px 12px; border-radius:10px;
   background:var(--ember-soft); color:var(--ember); font-size:.86rem; font-weight:550;
@@ -310,35 +311,36 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
   <h2>Restaurants</h2>
   <p class="sub">Juan owns this. Dad, Sep 2: he wants <b>one Korean meal</b>, probably lunch &mdash; he vetted picks with Yongsun and she was pleased. He also forwarded the NYT &ldquo;Where to eat in NYC right now.&rdquo;</p>
 
+  <div class="wx">💵 <b>The numbers are dinner, per person, food only</b> &mdash; before drinks, tax and tip, which in New York realistically add 40&ndash;50%. Lunch runs well under these at almost every one. Exact figures (River Café, SAGA, Yingtao, EMP) are the restaurants&rsquo; own published menu prices as of Sep 2026; the ~ ones are estimates. At fifteen people a $100 head is about $1,500 before drinks &mdash; worth knowing before the Saturday room gets picked.</div>
   <div class="wx">🍽 <b>Two different problems.</b> The <b>family dinners</b> (Sat and Sun) are 12&ndash;20 people and need real reservations booked weeks out &mdash; that rules out most of the small places below. The <b>rest</b> are for the two of us and small splinter groups. Book the big two first.</div>
 
   <p class="cat">Rooftop &amp; view</p>
   <div class="card">
-    <div class="row"><div class="t">BKN</div><div><div class="what">The River Café</div>
-      <div class="note">Under the Brooklyn Bridge, the classic Manhattan-skyline view. Jacket required, prix fixe, books out furthest of anything on this list.</div>
+    <div class="row"><div class="t">BKN</div><div><div class="what">The River Café <span class="tag price">$205</span></div>
+      <div class="note">Under the Brooklyn Bridge, the classic Manhattan-skyline view. Jacket required. $205 three-course prix fixe. Books out furthest of anything on this list.</div>
       <div class="links"><a href="https://www.rivercafe.com/">rivercafe.com</a></div>
     </div></div>
-    <div class="row"><div class="t">BKN</div><div><div class="what">Celestine</div>
+    <div class="row"><div class="t">BKN</div><div><div class="what">Celestine <span class="tag price">~$75</span></div>
       <div class="note">DUMBO, Mediterranean, same bridge view for a third of the price. Easier group booking.</div>
       <div class="links"><a href="http://celestinebk.com/">celestinebk.com</a></div>
     </div></div>
-    <div class="row"><div class="t">FiDi</div><div><div class="what">SAGA</div>
-      <div class="note">63rd floor of 70 Pine. Tasting menu; the bar (Overstory) upstairs is the cheaper way in.</div>
+    <div class="row"><div class="t">FiDi</div><div><div class="what">SAGA <span class="tag price">$198&ndash;298</span></div>
+      <div class="note">63rd floor of 70 Pine. $298 seven-course; a shorter $198 four-course runs Sun&ndash;Thu. The bar (Overstory) upstairs is the cheaper way in.</div>
       <div class="links"><a href="http://saga-nyc.com/">saga-nyc.com</a></div>
     </div></div>
-    <div class="row"><div class="t">HY</div><div><div class="what">Peak</div>
+    <div class="row"><div class="t">HY</div><div><div class="what">Peak <span class="tag price">~$120</span></div>
       <div class="note">101st floor, Hudson Yards. Big private-event capacity &mdash; a genuine candidate for the Saturday family dinner.</div>
       <div class="links"><a href="https://www.peaknyc.com/">peaknyc.com</a></div>
     </div></div>
-    <div class="row"><div class="t">MID</div><div><div class="what">The View <span class="tag decide">DAD&rsquo;S PICK</span></div>
-      <div class="note">Revolving, Times Square, Marriott Marquis. Dad has already floated this for the Saturday dinner and the family ate here on the last trip.</div>
+    <div class="row"><div class="t">MID</div><div><div class="what">The View <span class="tag price">~$100&ndash;150</span> <span class="tag decide">DAD&rsquo;S PICK</span></div>
+      <div class="note">Revolving, Times Square, Marriott Marquis. Dad has already floated this for the Saturday dinner and the family ate here on the last trip. <b>Confirm the price directly</b> &mdash; published listings disagree wildly, and this is the likeliest big-group room.</div>
       <div class="links"><a href="https://www.theviewnewyorkcity.com/">theviewnewyorkcity.com</a></div>
     </div></div>
   </div>
 
   <p class="cat">Bar</p>
   <div class="card">
-    <div class="row"><div class="t">HY</div><div><div class="what">Dear Irving on Hudson</div>
+    <div class="row"><div class="t">HY</div><div><div class="what">Dear Irving on Hudson <span class="tag price">~$60</span></div>
       <div class="note">40th floor of the Aliz Hotel, W 40th St. Cocktails with the skyline; good pre- or post-theatre.</div>
       <div class="links"><a href="https://www.dearirving.com/dear-irving-on-hudson">dearirving.com</a></div>
     </div></div>
@@ -346,11 +348,11 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
 
   <p class="cat">Park seating</p>
   <div class="card">
-    <div class="row"><div class="t">MID</div><div><div class="what">Bryant Park Grill</div>
+    <div class="row"><div class="t">MID</div><div><div class="what">Bryant Park Grill <span class="tag price">~$75</span></div>
       <div class="note">Behind the library, 15-min walk from the hotel. Handles large parties well and mid-October on the terrace is the whole point.</div>
       <div class="links"><a href="https://bryantparkgrillnyc.com/">bryantparkgrillnyc.com</a></div>
     </div></div>
-    <div class="row"><div class="t">CP</div><div><div class="what">Central Park Boathouse</div>
+    <div class="row"><div class="t">CP</div><div><div class="what">Central Park Boathouse <span class="tag price">~$85</span></div>
       <div class="note">Reopened 2024 under Legends; lunch and dinner daily, lakeside. Pairs naturally with a Met or Guggenheim day.</div>
       <div class="links"><a href="https://centralparkboathouse.com/restaurant-menu/">centralparkboathouse.com</a></div>
     </div></div>
@@ -358,15 +360,15 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
 
   <p class="cat">Dim sum</p>
   <div class="card">
-    <div class="row"><div class="t">CT</div><div><div class="what">Ping&rsquo;s Seafood</div>
+    <div class="row"><div class="t">CT</div><div><div class="what">Ping&rsquo;s Seafood <span class="tag price">~$35</span></div>
       <div class="note">Elizabeth St. Cart service on weekends; the Sunday-morning version is the real experience.</div>
       <div class="links"><a href="https://pingsnewyork.com/index.html">pingsnewyork.com</a></div>
     </div></div>
-    <div class="row"><div class="t">CT</div><div><div class="what">Golden Unicorn</div>
+    <div class="row"><div class="t">CT</div><div><div class="what">Golden Unicorn <span class="tag price">~$30</span></div>
       <div class="note">Big banquet floors on East Broadway &mdash; the one dim sum room here that can actually seat the whole family.</div>
       <div class="links"><a href="https://www.goldenunicornrestaurant.com/">goldenunicornrestaurant.com</a></div>
     </div></div>
-    <div class="row"><div class="t">CT</div><div><div class="what">Nom Wah Tea Parlor <span class="tag decide">ADDED</span></div>
+    <div class="row"><div class="t">CT</div><div><div class="what">Nom Wah Tea Parlor <span class="tag price">~$30</span> <span class="tag decide">ADDED</span></div>
       <div class="note">1920 on Doyers St, the oldest in Chinatown. Tiny, no carts, order off a sheet. This is the hole-in-the-wall version.</div>
       <div class="links"><a href="https://nomwah.com/">nomwah.com</a></div>
     </div></div>
@@ -374,15 +376,15 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
 
   <p class="cat">Michelin</p>
   <div class="card">
-    <div class="row"><div class="t">★★★</div><div><div class="what">Eleven Madison Park</div>
+    <div class="row"><div class="t">★★★</div><div><div class="what">Eleven Madison Park <span class="tag price">$365</span></div>
       <div class="note">Madison Square Park &mdash; an <b>8-minute walk from the hotel</b>. <b>No longer vegan-only</b>: since Oct 2025 the menu offers a plant-based track <em>plus</em> optional fish and meat, including the honey-lavender duck. 7&ndash;9 courses, ~$365. Reservations release on a fixed calendar; set a reminder.</div>
       <div class="links"><a href="https://www.elevenmadisonpark.com/">elevenmadisonpark.com</a></div>
     </div></div>
-    <div class="row"><div class="t">★</div><div><div class="what">Yingtao</div>
-      <div class="note">805 Ninth Av, <b>Hell&rsquo;s Kitchen</b> &mdash; the neighborhood, not the musical. The city&rsquo;s only Michelin-starred Chinese tasting menu, chef Emily Yuen. Small room: two or four, not twelve. Walkable to the theatres, so it works pre- or post-show.</div>
+    <div class="row"><div class="t">★</div><div><div class="what">Yingtao <span class="tag price">$90&ndash;150</span></div>
+      <div class="note">805 Ninth Av, <b>Hell&rsquo;s Kitchen</b> &mdash; the neighborhood, not the musical. The city&rsquo;s only Michelin-starred Chinese tasting menu, chef Emily Yuen &mdash; $150 seven-course or $90 four-course. Small room: two or four, not twelve. Walkable to the theatres, so it works pre- or post-show.</div>
       <div class="links"><a href="http://yingtaonyc.com/">yingtaonyc.com</a></div>
     </div></div>
-    <div class="row"><div class="t">★</div><div><div class="what">Café Boulud</div>
+    <div class="row"><div class="t">★</div><div><div class="what">Café Boulud <span class="tag price">~$140</span></div>
       <div class="note">100 E 63rd St &mdash; it moved here in 2023, it is no longer on 76th. Classical French, the most Dad-and-Carole-friendly of the three, and a short walk from the Frick.</div>
       <div class="links"><a href="https://www.cafeboulud.com/nyc/">cafeboulud.com</a></div>
     </div></div>
@@ -391,11 +393,11 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
   <p class="cat">Korean &mdash; for Dad</p>
   <div class="card">
     <div class="warn">Dad has already picked a Korean restaurant with Yongsun&rsquo;s blessing and plans to go &ldquo;perhaps for lunch.&rdquo; <b>Ask him which one</b> before booking anything here. These are the K-town standards, all a four-block walk.</div>
-    <div class="row"><div class="t">4 blk</div><div><div class="what">Jongro BBQ <span class="tag decide">ADDED</span></div>
+    <div class="row"><div class="t">4 blk</div><div><div class="what">Jongro BBQ <span class="tag price">~$65</span> <span class="tag decide">ADDED</span></div>
       <div class="note">W 32nd St. The K-town tabletop-grill benchmark. Expect a wait at dinner; lunch is calm.</div>
       <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Jongro+BBQ+New+York">Map</a></div>
     </div></div>
-    <div class="row"><div class="t">4 blk</div><div><div class="what">Her Name is Han <span class="tag decide">ADDED</span></div>
+    <div class="row"><div class="t">4 blk</div><div><div class="what">Her Name is Han <span class="tag price">~$40</span> <span class="tag decide">ADDED</span></div>
       <div class="note">Home-style rather than barbecue, calmer room, no smoke. Much better for a 90-year-old&rsquo;s lunch than a grill table.</div>
       <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Her+Name+is+Han+New+York">Map</a></div>
     </div></div>
@@ -403,43 +405,43 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
 
   <p class="cat">Hole in the wall &amp; institutions <span style="font-weight:600;text-transform:none;letter-spacing:0;color:var(--muted)">— my additions, verify before you count on one</span></p>
   <div class="card">
-    <div class="row"><div class="t">LES</div><div><div class="what">Katz&rsquo;s Delicatessen</div>
+    <div class="row"><div class="t">LES</div><div><div class="what">Katz&rsquo;s Delicatessen <span class="tag price">~$35</span></div>
       <div class="note">205 E Houston, since 1888. Pastrami on rye, cash-era ticket system, no reservations, no ceremony. The single most New York lunch available.</div>
       <div class="links"><a href="https://katzsdelicatessen.com/">katzsdelicatessen.com</a></div>
     </div></div>
-    <div class="row"><div class="t">LES</div><div><div class="what">Russ &amp; Daughters</div>
+    <div class="row"><div class="t">LES</div><div><div class="what">Russ &amp; Daughters <span class="tag price">~$38</span></div>
       <div class="note">Appetizing counter, 1914. Standing room only at the shop; the Orchard St café has tables and takes a wait.</div>
       <div class="links"><a href="https://www.russanddaughters.com/">russanddaughters.com</a></div>
     </div></div>
-    <div class="row"><div class="t">EV</div><div><div class="what">Veselka</div>
+    <div class="row"><div class="t">EV</div><div><div class="what">Veselka <span class="tag price">~$30</span></div>
       <div class="note">Second Av, Ukrainian, pierogi and borscht at any hour. Cheap, warm, and open when nothing else is.</div>
       <div class="links"><a href="https://www.veselka.com/">veselka.com</a></div>
     </div></div>
-    <div class="row"><div class="t">MID</div><div><div class="what">Keens Steakhouse</div>
+    <div class="row"><div class="t">MID</div><div><div class="what">Keens Steakhouse <span class="tag price">~$130</span></div>
       <div class="note">36th St &mdash; <b>9-minute walk</b>. 1885, clay pipes on the ceiling, mutton chop. Not cheap, but it is the closest thing to time travel in midtown and it seats a big table.</div>
       <div class="links"><a href="https://www.keens.com/">keens.com</a></div>
     </div></div>
-    <div class="row"><div class="t">MID</div><div><div class="what">Grand Central Oyster Bar</div>
+    <div class="row"><div class="t">MID</div><div><div class="what">Grand Central Oyster Bar <span class="tag price">~$65</span></div>
       <div class="note">Vaulted tile basement of Grand Central, 1913. Sit at the counter, not in the dining room.</div>
       <div class="links"><a href="https://www.oysterbarny.com/">oysterbarny.com</a></div>
     </div></div>
-    <div class="row"><div class="t">CHE</div><div><div class="what">Los Tacos No. 1</div>
+    <div class="row"><div class="t">CHE</div><div><div class="what">Los Tacos No. 1 <span class="tag price">~$18</span></div>
       <div class="note">Chelsea Market, 12-min walk. Standing counter, adobada off the trompo, under $5 a taco. Pairs with the High Line and the Whitney.</div>
       <div class="links"><a href="https://www.lostacos1.com/">lostacos1.com</a></div>
     </div></div>
-    <div class="row"><div class="t">VIL</div><div><div class="what">Joe&rsquo;s Pizza</div>
+    <div class="row"><div class="t">VIL</div><div><div class="what">Joe&rsquo;s Pizza <span class="tag price">~$8</span></div>
       <div class="note">Carmine St, 1975. A plate, folded, on the sidewalk. Two minutes, three dollars.</div>
       <div class="links"><a href="https://www.joespizzanyc.com/">joespizzanyc.com</a></div>
     </div></div>
-    <div class="row"><div class="t">multi</div><div><div class="what">Xi&rsquo;an Famous Foods</div>
+    <div class="row"><div class="t">multi</div><div><div class="what">Xi&rsquo;an Famous Foods <span class="tag price">~$18</span></div>
       <div class="note">Hand-ripped lamb noodles, numbing and fierce. Counter service, ten locations, no reservations ever.</div>
       <div class="links"><a href="https://www.xianfoods.com/">xianfoods.com</a></div>
     </div></div>
-    <div class="row"><div class="t">UWS</div><div><div class="what">Barney Greengrass</div>
+    <div class="row"><div class="t">UWS</div><div><div class="what">Barney Greengrass <span class="tag price">~$42</span></div>
       <div class="note">Amsterdam Av, &ldquo;The Sturgeon King,&rdquo; 1908. Formica tables and sturgeon &mdash; the right breakfast before the Met or the AMNH.</div>
       <div class="links"><a href="https://www.barneygreengrass.com/">barneygreengrass.com</a></div>
     </div></div>
-    <div class="row"><div class="t">FLA</div><div><div class="what">S&amp;P Lunch</div>
+    <div class="row"><div class="t">FLA</div><div><div class="what">S&amp;P Lunch <span class="tag price">~$25</span></div>
       <div class="note">174 Fifth Av, 10-min walk &mdash; the old Eisenberg&rsquo;s counter, revived. Tuna salad and a chocolate egg cream at a 1929 lunch counter.</div>
       <div class="links"><a href="https://www.sandplunch.com/">sandplunch.com</a></div>
     </div></div>
