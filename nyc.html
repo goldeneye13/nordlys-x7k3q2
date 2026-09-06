@@ -62,8 +62,10 @@ nav.chips a{
 }
 @media (hover:hover){nav.chips a:hover{background:var(--accent); color:var(--accent-ink)}}
 nav.subnav{
+  position:sticky; top:62px; z-index:9;
   display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;
-  margin:0 0 16px; padding-bottom:2px;
+  margin:0 -16px 16px; padding:8px 16px; background:var(--ground);
+  border-bottom:1px solid var(--line);
 }
 nav.subnav a{
   flex:0 0 auto; text-decoration:none; color:var(--ink); background:var(--chipbg);
@@ -78,7 +80,8 @@ h3.dayhead{
   font-size:1.06rem; margin:0 0 2px; text-wrap:balance;
 }
 section{padding-top:22px}
-section[id], .dayblock[id]{scroll-margin-top:66px}
+section[id]{scroll-margin-top:66px}
+.dayblock[id]{scroll-margin-top:104px}
 section h2{
   font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
   font-size:1.22rem; margin:0 0 2px; text-wrap:balance;
@@ -168,7 +171,7 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">851 Sixth Av, work-related rate. Dates still TBD. &ldquo;I will get a hotel near everyone when the time comes.&rdquo;</div>
     </div></div>
     <div class="row"><div class="t">Rest</div><div><div class="what">Christine &amp; Chelsey &middot; Kristin &amp; Greg &middot; Soyrings</div>
-      <div class="note">All likely or confirmed at the Fairfield. Sue Soyring booked two rooms; Bruce, Moriah and Chris with her, Joanna trying.</div>
+      <div class="note">All likely or confirmed at the Fairfield. Sue Soyring booked two rooms; Bruce, Mariah and Chris with her, Joanna trying.</div>
     </div></div>
   </div>
 </section>
