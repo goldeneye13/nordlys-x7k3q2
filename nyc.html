@@ -46,21 +46,39 @@ header.hero{padding:28px 0 12px}
   margin-top:14px; padding:10px 14px; background:var(--card);
   border:1px solid var(--line); border-radius:10px;
   font-size:.85rem; color:var(--muted); overflow-x:auto; white-space:nowrap;
+  margin-bottom:14px;
 }
 .routeline b{color:var(--accent); font-weight:600}
 nav.chips{
   position:sticky; top:0; z-index:10; background:var(--ground);
-  padding:10px 0; margin:8px -16px 0; padding-left:16px; padding-right:16px;
+  padding:10px 0; margin:10px -16px 0; padding-left:16px; padding-right:16px;
   display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
   border-bottom:1px solid var(--line);
 }
 nav.chips a{
-  flex:0 0 auto; text-decoration:none; color:var(--ink);
-  background:var(--chipbg); border-radius:999px; padding:6px 13px;
-  font-size:.83rem; font-weight:600;
+  flex:0 0 auto; text-decoration:none; color:var(--accent);
+  background:var(--card); border:1.5px solid var(--accent); border-radius:10px;
+  padding:9px 15px; font-size:.87rem; font-weight:700; white-space:nowrap;
 }
-nav.chips a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (hover:hover){nav.chips a:hover{background:var(--accent); color:var(--accent-ink)}}
+nav.subnav{
+  display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  margin:0 0 16px; padding-bottom:2px;
+}
+nav.subnav a{
+  flex:0 0 auto; text-decoration:none; color:var(--ink); background:var(--chipbg);
+  border-radius:999px; padding:5px 12px; font-size:.8rem; font-weight:650;
+  white-space:nowrap;
+}
+nav.chips a:focus-visible, nav.subnav a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.dayblock{padding-top:20px}
+.dayblock:first-of-type{padding-top:2px}
+h3.dayhead{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.06rem; margin:0 0 2px; text-wrap:balance;
+}
 section{padding-top:22px}
+section[id], .dayblock[id]{scroll-margin-top:66px}
 section h2{
   font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
   font-size:1.22rem; margin:0 0 2px; text-wrap:balance;
@@ -123,15 +141,15 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
 <header class="hero">
   <h1>Richard&rsquo;s 90th &middot; New York</h1>
   <div class="dates">October 14 &ndash; 21, 2026 &middot; Tom &amp; Juan<br>Dick turns 90 on Mon Oct 12 &middot; the family gathers around the weekend of Oct 16&ndash;18</div>
-  <div class="routeline"><b>Wed 14</b> Tom&amp;Juan in &rarr; <b>Thu 15</b> Dick&amp;Carole &rarr; <b>Fri 16</b> La Bohème &middot; Christine&amp;Chelsey &rarr; <b>Sat 17</b> Karen&middot;Kristin&middot;Soyrings &rarr; <b>Sun 18</b> everyone &rarr; <b>Wed 21</b> out</div>
+  <div class="links" style="margin-top:12px"><a class="solid" href="https://drive.google.com/drive/folders/1WRelVTkEgD_kmM92yavXVwkimOeJBa58">📁 All trip documents (Drive)</a></div>
 </header>
 
 <nav class="chips">
-  <a href="#base">Base</a><a href="#wed14">Wed 14</a><a href="#thu15">Thu 15</a><a href="#fri16">Fri 16</a><a href="#sat17">Sat 17</a><a href="#sun18">Sun 18</a><a href="#mon19">Mon 19</a><a href="#tue20">Tue 20</a><a href="#wed21">Wed 21</a><a href="#eats">Eats</a><a href="#do">To Do</a><a href="#todo">Checklist</a>
+  <a href="#base">Base Camp</a><a href="#itinerary">Itinerary</a><a href="#eats">Restaurants</a><a href="#do">Things to Do</a><a href="#todo">Checklist</a>
 </nav>
 
 <section id="base">
-  <h2>Base camp</h2>
+  <h2>Base Camp</h2>
   <p class="sub">Fairfield Inn &amp; Suites New York Manhattan/Chelsea &middot; 116 W 28th St &middot; 212-206-0998</p>
   <div class="wx">📍 <b>Where we actually are:</b> the block is NoMad, not really Chelsea. <b>Koreatown is four blocks north</b> on W 32nd St &mdash; which solves Dad&rsquo;s Korean-lunch wish without a subway ride. Herald Square/Macy&rsquo;s 5 min, Empire State 6 min, Flatiron 8 min, Madison Square Park 8 min. Trains at 28th St: <b>1</b> (7th Av), <b>N R W</b> (Broadway), <b>6</b> (Park Av S) &mdash; three lines within two blocks.</div>
   <div class="card">
@@ -155,8 +173,14 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
   </div>
 </section>
 
-<section id="wed14">
-  <h2>Wed Oct 14 &mdash; Arrive</h2>
+<section id="itinerary">
+  <h2>Itinerary</h2>
+  <p class="sub">One fixed point &mdash; the opera. Everything else is Dad&rsquo;s draft, still moving.</p>
+  <div class="routeline"><b>Wed 14</b> Tom&amp;Juan in &rarr; <b>Thu 15</b> Dick&amp;Carole &rarr; <b>Fri 16</b> La Bohème &middot; Christine&amp;Chelsey &rarr; <b>Sat 17</b> Karen&middot;Kristin&middot;Soyrings &rarr; <b>Sun 18</b> everyone &rarr; <b>Wed 21</b> out</div>
+  <nav class="subnav"><a href="#wed14">Wed 14</a><a href="#thu15">Thu 15</a><a href="#fri16">Fri 16</a><a href="#sat17">Sat 17</a><a href="#sun18">Sun 18</a><a href="#mon19">Mon 19</a><a href="#tue20">Tue 20</a><a href="#wed21">Wed 21</a></nav>
+
+<div class="dayblock" id="wed14">
+  <h3 class="dayhead">Wed Oct 14 &mdash; Arrive</h3>
   <p class="sub">Two clear days before anything is scheduled.</p>
   <div class="card">
     <div class="warn">⚠️ Dad&rsquo;s planning doc lists us as &ldquo;Oct. 14 (Thurs)&rdquo; &mdash; but Oct 14 is a <b>Wednesday</b>. Every other date in his table checks out, so this is either a typo or he means Thu the 15th. Worth settling before anyone books flights.</div>
@@ -168,10 +192,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Koreatown+W+32nd+St+New+York">K-town</a></div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="thu15">
-  <h2>Thu Oct 15 &mdash; Free</h2>
+<div class="dayblock" id="thu15">
+  <h3 class="dayhead">Thu Oct 15 &mdash; Free</h3>
   <p class="sub">Dick &amp; Carole arrive (or Fri). Nothing on the family calendar.</p>
   <div class="card">
     <div class="row"><div class="t">idea</div><div><div class="what">The best museum day of the week</div>
@@ -183,10 +207,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="links"><a href="https://www.frick.org/exhibitions">frick.org</a></div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="fri16">
-  <h2>Fri Oct 16 &mdash; La Bohème</h2>
+<div class="dayblock" id="fri16">
+  <h3 class="dayhead">Fri Oct 16 &mdash; La Bohème</h3>
   <p class="sub">The one fixed point of the whole trip.</p>
   <div class="card">
     <div class="row"><div class="t">19:30</div><div><div class="what">La Bohème &middot; Metropolitan Opera <span class="tag booked">BOOKED</span></div>
@@ -200,10 +224,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">In Friday evening, out midday Tuesday the 20th.</div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="sat17">
-  <h2>Sat Oct 17 &mdash; The big arrival day</h2>
+<div class="dayblock" id="sat17">
+  <h3 class="dayhead">Sat Oct 17 &mdash; The big arrival day</h3>
   <p class="sub">Karen&rsquo;s family, Kristin &amp; Greg, and the Soyrings all land.</p>
   <div class="card">
     <div class="row"><div class="t">13/14</div><div><div class="what">Matinee <span class="tag decide">DECIDE</span></div>
@@ -218,10 +242,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">Dad, Aug 29: &ldquo;If you want to save Hell&rsquo;s Kitchen for your anniversary, we can go elsewhere Saturday night.&rdquo; He&rsquo;s offered to move the group. Answer him.</div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="sun18">
-  <h2>Sun Oct 18 &mdash; Everyone in town</h2>
+<div class="dayblock" id="sun18">
+  <h3 class="dayhead">Sun Oct 18 &mdash; Everyone in town</h3>
   <p class="sub">The only day the whole family overlaps.</p>
   <div class="card">
     <div class="row"><div class="t">14:00</div><div><div class="what">Chicago &mdash; all <span class="tag decide">CONFIRM</span></div>
@@ -235,10 +259,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">Soyrings leave after this one. Biggest headcount of the trip.</div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="mon19">
-  <h2>Mon Oct 19 &mdash; Museums</h2>
+<div class="dayblock" id="mon19">
+  <h3 class="dayhead">Mon Oct 19 &mdash; Museums</h3>
   <p class="sub">Kristin &amp; Greg depart. Dad left this day loose on purpose.</p>
   <div class="card">
     <div class="warn">⚠️ <b>Monday is the worst museum day in New York.</b> The Whitney (Lichtenstein), the Morgan and the Brooklyn Museum are all normally closed Mondays. The Met, MoMA, Guggenheim and Frick <em>are</em> open. If anyone wants the Lichtenstein or the Morgan, do it Thu 15 or Tue 20 instead.</div>
@@ -250,10 +274,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">Dad: &ldquo;selling tickets, but we can decide closer to the date which shows may be open that night.&rdquo; Most Broadway houses go dark Monday; off-Broadway is likelier.</div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="tue20">
-  <h2>Tue Oct 20 &mdash; Last show</h2>
+<div class="dayblock" id="tue20">
+  <h3 class="dayhead">Tue Oct 20 &mdash; Last show</h3>
   <p class="sub">Christine &amp; Chelsey out midday. Dick &amp; Carole out today or tomorrow.</p>
   <div class="card">
     <div class="row"><div class="t">19:00</div><div><div class="what">Operation Mincemeat / Schmigadoon / Hamilton <span class="tag decide">DECIDE</span></div>
@@ -263,10 +287,10 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">If Monday&rsquo;s closures got in the way, Tuesday is the Whitney&rsquo;s normal dark day too &mdash; check the calendar before counting on it. The Met and MoMA are safe.</div>
     </div></div>
   </div>
-</section>
+</div>
 
-<section id="wed21">
-  <h2>Wed Oct 21 &mdash; Out</h2>
+<div class="dayblock" id="wed21">
+  <h3 class="dayhead">Wed Oct 21 &mdash; Out</h3>
   <div class="card">
     <div class="row"><div class="t">—</div><div><div class="what">Tom &amp; Juan depart</div>
       <div class="note">Karen, Craig and Rosalind stay through Fri Oct 23.</div>
@@ -275,6 +299,8 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
       <div class="note">MoMA&rsquo;s Brancusi opens Oct 25 and the Met&rsquo;s Tiffany drawings open Oct 22 &mdash; both a day or four after we fly. Nothing to do about it, but don&rsquo;t go looking for them.</div>
     </div></div>
   </div>
+</div>
+
 </section>
 
 <section id="eats">
@@ -418,7 +444,7 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
 </section>
 
 <section id="do">
-  <h2>Things to do</h2>
+  <h2>Things to Do</h2>
   <p class="sub">Museums, with what&rsquo;s actually up during Oct 14&ndash;21, 2026. Left column is travel time from the hotel.</p>
 
   <div class="wx">🗓 <b>Closure days matter more than usual here.</b> The Met closes Wednesdays. The Guggenheim has been closing Thursdays. The Whitney, the Morgan and the Brooklyn Museum close Mondays &mdash; which is exactly the day Dad set aside for museums. Confirm each one&rsquo;s calendar the week before.</div>
@@ -515,7 +541,7 @@ footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
     <div class="row"><div><div class="what">Tuesday show: Operation Mincemeat?</div><div class="note">Karen&rsquo;s preference; nothing held</div></div><span class="tag decide">DECIDE</span></div>
     <div class="row"><div><div class="what">Eleven Madison Park</div><div class="note">If we want it — reservations release on a fixed calendar, set a reminder</div></div><span class="tag todo">BOOK</span></div>
     <div class="row"><div><div class="what">La Bohème · Fri 16, 7:30</div><div class="note">Dick, Carole, Tom, Juan — Dad bought 4 on Aug 14</div></div><span class="tag booked">BOOKED</span></div>
-    <div class="row"><div><div class="what">Drive folder for trip documents</div><div class="note">Like the Iceland one — then link it from the header here</div></div><span class="tag todo">MAKE</span></div>
+    <div class="row"><div><div class="what">Drive folder for trip documents</div><div class="note">Linked from the header above — <a href="https://drive.google.com/drive/folders/1WRelVTkEgD_kmM92yavXVwkimOeJBa58">open it</a></div></div><span class="tag booked">DONE</span></div>
   </div>
   <p class="sub">Pay travel bookings on Chase Sapphire Preferred (trip protection). Always pay in local currency, never the USD conversion offer.</p>
 </section>
