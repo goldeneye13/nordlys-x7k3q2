@@ -1,0 +1,511 @@
+<title>Patricia&rsquo;s 90th &middot; Choosing Where</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#F8F5F1; --card:#FFFFFF; --ink:#26201A; --muted:#6E6357;
+  --accent:#A8611B; --accent-ink:#FFFFFF; --line:#E7DED2;
+  --ember:#A8442A; --ember-soft:#F8E9E3; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#EFE7DB;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#16130F; --card:#211C16; --ink:#EAE0D2; --muted:#A39683;
+    --accent:#E2A85C; --accent-ink:#16130F; --line:#342B21;
+    --ember:#E5854F; --ember-soft:#3A2418; --ok:#6CC493; --ok-soft:#1D3327;
+    --chipbg:#2A231A40;
+  }
+}
+:root[data-theme="light"]{
+  --ground:#F8F5F1; --card:#FFFFFF; --ink:#26201A; --muted:#6E6357;
+  --accent:#A8611B; --accent-ink:#FFFFFF; --line:#E7DED2;
+  --ember:#A8442A; --ember-soft:#F8E9E3; --ok:#2E7D4F; --ok-soft:#E3F1E8;
+  --chipbg:#EFE7DB;
+}
+:root[data-theme="dark"]{
+  --ground:#16130F; --card:#211C16; --ink:#EAE0D2; --muted:#A39683;
+  --accent:#E2A85C; --accent-ink:#16130F; --line:#342B21;
+  --ember:#E5854F; --ember-soft:#3A2418; --ok:#6CC493; --ok-soft:#1D3327;
+  --chipbg:#2A231A40;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.5;
+}
+.wrap{max-width:640px; margin:0 auto; padding:0 16px 64px}
+header.hero{padding:28px 0 12px}
+.hero h1{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.7rem; line-height:1.2; margin:0 0 4px; text-wrap:balance;
+}
+.hero .dates{color:var(--muted); font-size:.95rem}
+.routeline{
+  margin-top:14px; padding:10px 14px; background:var(--card);
+  border:1px solid var(--line); border-radius:10px;
+  font-size:.85rem; color:var(--muted); overflow-x:auto; white-space:nowrap;
+  margin-bottom:14px;
+}
+.routeline b{color:var(--accent); font-weight:600}
+nav.chips{
+  position:sticky; top:0; z-index:10; background:var(--ground);
+  padding:10px 0; margin:10px -16px 0; padding-left:16px; padding-right:16px;
+  display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--line);
+}
+nav.chips a{
+  flex:0 0 auto; text-decoration:none; color:var(--accent);
+  background:var(--card); border:1.5px solid var(--accent); border-radius:10px;
+  padding:9px 15px; font-size:.87rem; font-weight:700; white-space:nowrap;
+}
+@media (hover:hover){nav.chips a:hover{background:var(--accent); color:var(--accent-ink)}}
+nav.chips a:focus-visible, a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+section{padding-top:22px}
+section[id]{scroll-margin-top:66px}
+section h2{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.22rem; margin:0 0 2px; text-wrap:balance;
+}
+section .sub{color:var(--muted); font-size:.88rem; margin:0 0 12px}
+.cat{
+  font-size:.74rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--accent); margin:16px 0 6px;
+}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:4px 0; margin-bottom:14px; overflow:hidden;
+}
+.row{
+  display:grid; grid-template-columns:58px 1fr; gap:0 12px;
+  padding:12px 14px; border-bottom:1px solid var(--line);
+}
+.row:last-child{border-bottom:none}
+.row .t{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-variant-numeric:tabular-nums; font-size:.83rem; color:var(--accent);
+  font-weight:600; padding-top:2px;
+}
+.row .what{font-weight:650; font-size:.98rem}
+.row .note{color:var(--muted); font-size:.88rem; margin-top:2px}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+.links a{
+  display:inline-block; text-decoration:none; font-size:.8rem; font-weight:650;
+  color:var(--accent); border:1.5px solid var(--accent); border-radius:999px;
+  padding:3px 12px;
+}
+.links a.solid{background:var(--accent); color:var(--accent-ink)}
+.tag{
+  display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em;
+  border-radius:6px; padding:2px 8px; vertical-align:2px; margin-left:6px;
+}
+.tag.booked{background:var(--ok-soft); color:var(--ok)}
+.tag.todo{background:var(--ember-soft); color:var(--ember)}
+.tag.decide{background:var(--chipbg); color:var(--muted)}
+.warn{
+  margin:0 14px 12px; padding:10px 12px; border-radius:10px;
+  background:var(--ember-soft); color:var(--ember); font-size:.86rem; font-weight:550;
+}
+ul.plain{margin:6px 0 10px; padding-left:20px}
+ul.plain li{margin-bottom:6px; font-size:.92rem}
+.wx{
+  margin:0 0 12px; padding:9px 12px; border-radius:10px;
+  background:var(--chipbg); font-size:.84rem; color:var(--ink);
+}
+.wx b{color:var(--accent)}
+
+/* --- this page --- */
+.brief{padding:14px; border-bottom:1px solid var(--line)}
+.brief:last-child{border-bottom:none}
+.brief h3{
+  font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+  font-size:1.06rem; margin:0 0 6px; text-wrap:balance;
+}
+.brief h3 .n{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  color:var(--accent); font-size:.85rem; margin-right:6px;
+}
+.brief p{margin:0 0 10px; font-size:.93rem}
+.brief p:last-of-type{margin-bottom:6px}
+.refs{font-size:.78rem; color:var(--muted); margin-top:8px; line-height:1.7}
+.refs a{color:var(--accent); text-decoration:none; font-weight:600}
+.refs b{
+  display:block; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); font-weight:700; margin-bottom:2px;
+}
+.tablewrap{overflow-x:auto; margin:0 0 6px; -webkit-overflow-scrolling:touch}
+table.matrix{border-collapse:collapse; font-size:.8rem; min-width:520px; width:100%}
+table.matrix th, table.matrix td{
+  text-align:left; padding:7px 9px; border-bottom:1px solid var(--line);
+  vertical-align:top; font-variant-numeric:tabular-nums;
+}
+table.matrix thead th{
+  font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--accent); border-bottom:1.5px solid var(--line); white-space:nowrap;
+}
+table.matrix tbody th{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-weight:700; color:var(--ink); white-space:nowrap;
+}
+table.matrix td{color:var(--muted)}
+table.matrix td.good{color:var(--ok); font-weight:600}
+table.matrix td.bad{color:var(--ember); font-weight:600}
+.bdaystrip{display:flex; flex-wrap:wrap; gap:8px; margin:4px 0 12px}
+.bday{
+  flex:1 1 118px; background:var(--card); border:1px solid var(--line);
+  border-radius:10px; padding:9px 11px;
+}
+.bday.star{border-color:var(--accent); border-width:1.5px}
+.bday .d{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  font-size:.78rem; color:var(--accent); font-weight:700;
+}
+.bday .who{font-size:.9rem; font-weight:650; margin-top:2px}
+.bday .yr{font-size:.76rem; color:var(--muted)}
+footer{margin-top:36px; color:var(--muted); font-size:.78rem; text-align:center}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <h1>Patricia&rsquo;s 90th &middot; choosing where</h1>
+  <div class="dates">She turns <b>90 on Sunday, April 11, 2027</b>.<br>
+  Her two rules: not in the US, and somewhere with a resort.<br>
+  Nothing is booked. This page is the shortlist &mdash; tell us what you think.</div>
+  <div class="routeline">
+    <b>GDL</b> Patricia &nbsp;&middot;&nbsp; <b>BRU/AMS</b> Karen +2 &nbsp;&middot;&nbsp;
+    <b>BOS</b> Ben +2 &nbsp;&middot;&nbsp; <b>ORD/MDW</b> Christy +3 &nbsp;&middot;&nbsp;
+    <b>PTY</b> Pancho &amp; Gloria &nbsp;&middot;&nbsp; <b>DEN/LAX</b> Tom &amp; Juan
+    &nbsp;&middot;&nbsp; about 15 of us
+  </div>
+</header>
+
+<nav class="chips">
+  <a href="#dates">The week</a>
+  <a href="#how">How we&rsquo;re choosing</a>
+  <a href="#briefs">The six options</a>
+  <a href="#you">What we need</a>
+</nav>
+
+<section id="dates">
+  <h2>The week we&rsquo;re proposing</h2>
+  <p class="sub">Wednesday April 7 &rarr; Wednesday April 14, 2027 &middot; seven nights</p>
+
+  <p style="font-size:.93rem; margin:0 0 10px">These dates are not arbitrary. They stack
+  four birthdays into one trip, and they put Patricia&rsquo;s actual 90th in the middle of
+  the week, when everyone has arrived and nobody is packing yet. A Sunday is already the
+  natural night for the one big dinner.</p>
+
+  <div class="bdaystrip">
+    <div class="bday"><div class="d">Mar 22 &middot; Mon</div><div class="who">Gloria</div><div class="yr">before the trip</div></div>
+    <div class="bday"><div class="d">Apr 3 &middot; Sat</div><div class="who">Tom &amp; Karen</div><div class="yr">four days early</div></div>
+    <div class="bday star"><div class="d">Apr 7 &middot; Wed</div><div class="who">Pancho</div><div class="yr">arrival day</div></div>
+    <div class="bday star"><div class="d">Apr 8 &middot; Thu</div><div class="who">Chati</div><div class="yr">day two</div></div>
+    <div class="bday star"><div class="d">Apr 11 &middot; Sun</div><div class="who">Patricia &mdash; 90</div><div class="yr">the main event</div></div>
+    <div class="bday"><div class="d">May 4 &middot; Tue</div><div class="who">Ben</div><div class="yr">after</div></div>
+    <div class="bday"><div class="d">May 13 &middot; Thu</div><div class="who">Juan</div><div class="yr">after</div></div>
+  </div>
+
+  <div class="wx"><b>Easter 2027 is March 28</b>, so Semana Santa runs March 22&ndash;28
+  and we sit two clear weeks after it. In Mexico that means no holiday surcharge, no
+  crowds, and award seats actually available.</div>
+
+  <p style="font-size:.93rem; margin:0"><b>Can&rsquo;t take a full week?</b> The shorter
+  core is <b>Friday April 9 &rarr; Tuesday April 13</b>. That still covers the 90th with a
+  day of padding either side.</p>
+</section>
+
+<section id="how">
+  <h2>How we&rsquo;re choosing</h2>
+  <p class="sub">Two constraints do most of the work</p>
+
+  <ul class="plain">
+    <li><b>Patricia&rsquo;s journey is the constraint, not the average journey.</b>
+    She&rsquo;s flying out of Guadalajara, and the party is for her, so a destination
+    that&rsquo;s wonderful for five of us and awkward for her is simply the wrong
+    destination. Everyone else can absorb a connection. We&rsquo;d rather she didn&rsquo;t
+    have to.</li>
+    <li><b>Inside Mexico she flies domestic.</b> No immigration hall, no customs, no
+    passport queue. That is worth more than any single feature of any single resort, and
+    nowhere outside Mexico can match it.</li>
+    <li><b>Not a sealed resort bubble.</b> Patricia asked for a resort; we also want real
+    places within day-trip reach rather than a week behind one gate. That is really
+    Karen&rsquo;s Cancún idea generalised, and it rules out a few otherwise fine
+    islands.</li>
+  </ul>
+
+  <p class="cat">Nonstop service, by origin</p>
+  <div class="tablewrap">
+  <table class="matrix">
+    <thead>
+      <tr><th>From</th><th>Riviera Maya</th><th>Panama</th><th>Puerto Vallarta</th><th>Aruba</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>GDL</th>
+        <td class="good">Nonstop 2h40, domestic</td>
+        <td class="good">Nonstop 4h08, daily</td>
+        <td class="good">Nonstop 1h, or drive</td>
+        <td>1 stop via PTY, ~13h day</td></tr>
+      <tr><th>BRU/AMS</th>
+        <td class="good">KLM nonstop, Tue/Thu/Sat</td>
+        <td class="good">KLM nonstop</td>
+        <td class="bad">2 connections</td>
+        <td class="good">KLM nonstop daily</td></tr>
+      <tr><th>BOS</th>
+        <td class="good">JetBlue, Delta, AA</td>
+        <td class="good">Copa nonstop</td>
+        <td class="bad">No nonstop at all</td>
+        <td>JetBlue year-round</td></tr>
+      <tr><th>ORD</th>
+        <td class="good">Many nonstop</td>
+        <td class="good">Copa nonstop</td>
+        <td class="good">Nonstop</td>
+        <td>United; AA seasonal</td></tr>
+      <tr><th>PTY</th>
+        <td class="good">Copa year-round</td>
+        <td class="good">Home</td>
+        <td class="bad">Copa twice weekly</td>
+        <td class="good">Copa daily, 1h57</td></tr>
+      <tr><th>DEN/LAX</th>
+        <td class="good">Nonstop</td>
+        <td class="good">Copa nonstop</td>
+        <td class="good">Nonstop</td>
+        <td>DEN Wed&ndash;Sat only</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:.88rem; color:var(--muted); margin:2px 0 0">Route data checked
+  September 2026. April 2027 schedules are not fully loaded yet and all of this gets
+  reconfirmed before anyone books.</p>
+</section>
+
+<section id="briefs">
+  <h2>The six options</h2>
+  <p class="sub">Ranked. Every one of them was checked properly, including the two we ended up saying no to.</p>
+
+  <div class="card">
+
+    <div class="brief">
+      <h3><span class="n">01</span>Riviera Maya / Cancún<span class="tag booked">Recommended</span></h3>
+      <p><b>Karen&rsquo;s suggestion, and it holds up better than anything else we
+      looked at.</b> This is the only candidate where all six origin cities fly nonstop. Patricia is
+      2h40 from Guadalajara with about 55 departures a week to choose from, and because it
+      is a domestic flight she skips immigration entirely. Karen has a KLM nonstop from
+      Amsterdam on Tuesdays, Thursdays and Saturdays. Ben has three carriers out of Boston,
+      Christy has a wide choice from O&rsquo;Hare, and Copa serves Panama year-round. With
+      15 people converging from three continents, connection-free travel is worth more
+      than any single feature of any single resort.</p>
+      <p>The landmark half of the brief is the region&rsquo;s whole identity. Tulum&rsquo;s
+      clifftop Maya site is about an hour from Playa del Carmen and is the easy, photogenic
+      outing. Chichén Itzá is 2.5 hours each way, so it is a full day and a hot one, and it
+      shouldn&rsquo;t sit next to a travel day. Cobá is quieter at 1.5 hours, and dozens of
+      cenotes sit inside an hour, which makes them the best low-effort excursion for a
+      mixed-age group. On lodging there are two shapes: Hotel Xcaret México bundles the
+      Chichén Itzá tour, the cenote tour and the parks with transport into the room rate,
+      which removes the hardest part of moving a group this size, at roughly $600&ndash;1,500
+      a room per night; or a mid-range block at Bahía Príncipe, Iberostar or Barceló at
+      $280&ndash;500. One thing to plan around: the clear-water window runs November through
+      April, so we sit at the good end of it, but sargassum can start arriving in April in a
+      bad year. A north- or west-facing beach hedges that.</p>
+      <div class="refs"><b>Sources</b>
+        <a href="https://www.flightsfrom.com/GDL-CUN">GDL&ndash;CUN nonstops</a> &middot;
+        <a href="https://www.flightconnections.com/flights-from-ams-to-cun">KLM Amsterdam</a> &middot;
+        <a href="https://www.flightsfrom.com/BOS-CUN">Boston nonstops</a> &middot;
+        <a href="https://www.tripadvisor.com/Hotel_Review-g150812-d13189438-Reviews-Hotel_Xcaret_Mexico-Playa_del_Carmen_Yucatan_Peninsula.html">Hotel Xcaret</a> &middot;
+        <a href="https://all-inclusive-guide.com/guides/best-all-inclusive-resorts-riviera-maya/">Resort rate bands</a> &middot;
+        <a href="https://www.howisthesargassum.com/blog/sargassum-season-cancun-riviera-maya">Sargassum calendar</a>
+      </div>
+    </div>
+
+    <div class="brief">
+      <h3><span class="n">02</span>Panama<span class="tag decide">Strong runner-up</span></h3>
+      <p>Copa&rsquo;s hub does something no other option manages: it reaches five of our six
+      origins nonstop, and the sixth party already lives there. Guadalajara to Tocumen runs
+      daily at 4h08, KLM flies Amsterdam, and Copa serves Boston, Chicago and Denver
+      directly. The resort would be The Buenaventura Golf &amp; Beach Resort at Playa
+      Blanca, about 80 minutes west of Tocumen with a hotel shuttle, or 20 minutes from the
+      Río Hato regional strip. The landmarks are genuinely close and genuinely good, which
+      is the part people underrate: Casco Viejo, the Miraflores Locks and the Canal itself,
+      the crater town of El Valle de Antón, and the Gamboa rainforest.</p>
+      <p>Three things keep it out of first place. April is Panama&rsquo;s hottest month,
+      with average highs above 33°C and the dry season ending mid-month, and sustained heat
+      like that shapes how much of the day is usable, rather than being a footnote. The Pacific
+      beaches at Playa Blanca are grey-sand and strongly tidal, which is not the postcard
+      anyone pictures when they hear the word resort. And least measurable but most real:
+      it is home turf. Tom and Juan are in Panama constantly and Pancho and Gloria live
+      there, so a milestone birthday risks feeling like a normal visit with extra relatives.
+      That last one is taste rather than logistics, and if the group disagrees, Panama is
+      very defensible on the numbers alone.</p>
+      <div class="refs"><b>Sources</b>
+        <a href="https://www.flightconnections.com/flights-from-gdl-to-pty">Copa GDL&ndash;PTY</a> &middot;
+        <a href="https://www.flightconnections.com/flights-from-panama-city-pty">Copa network</a> &middot;
+        <a href="https://www.marriott.com/en-us/hotels/ptykp-the-buenaventura-golf-and-beach-resort-panama-autograph-collection/overview/">Buenaventura resort</a> &middot;
+        <a href="https://www.roughguides.com/panama/when-to-go/april/">Panama in April</a>
+      </div>
+    </div>
+
+    <div class="brief">
+      <h3><span class="n">03</span>Puerto Vallarta<span class="tag todo">Fallback</span></h3>
+      <p>By a wide margin this is the kindest destination for Patricia. It is a one-hour
+      flight from Guadalajara, and if flying turns out to be the problem rather than the
+      distance, it is the only place on this list she could reach by car, in about three and
+      a half hours. The landmarks are better than the region&rsquo;s package-holiday
+      reputation suggests: the Malecón and the Zona Romántica in town, the restored mountain
+      mining town of San Sebastián del Oeste, boat-only Yelapa, Sayulita up the coast, and
+      the Marietas islands. Chicago, Denver and Los Angeles all fly nonstop, so half the
+      group is well served.</p>
+      <p>It breaks on the other half. There is no nonstop from Boston at all, which puts
+      Ben&rsquo;s party on a connection each way, and Europe needs two connections. Copa
+      flies Panama to Puerto Vallarta only twice a week, which means Pancho and
+      Gloria&rsquo;s travel days stop being a choice and start being whatever the airline
+      offers. We are keeping this one in reserve rather than discarding it. If it turns out
+      Patricia would rather not fly far, Puerto Vallarta is the answer, and the rest of us
+      absorbing one connection each is a fair price for the guest of honour having the
+      easiest journey of anyone.</p>
+      <div class="refs"><b>Sources</b>
+        <a href="https://www.flights.com/lp/flights/bos/pvr/boston-to-puerto-vallarta">No Boston nonstop</a> &middot;
+        <a href="https://en.travel2latam.com/news-52610-copa-airlines-inaugurates-a-direct-flight-between-puerto-vallarta-riviera-nayarit-and-panama">Copa PTY&ndash;PVR twice weekly</a>
+      </div>
+    </div>
+
+    <div class="brief">
+      <h3><span class="n">04</span>Aruba<span class="tag decide">No</span></h3>
+      <p>This was on Juan&rsquo;s own list, and an early draft of our notes rejected it for
+      the wrong reason. We had written that Aruba was two stops from Guadalajara. That was wrong: Copa
+      connects it in one stop on a single ticket, Guadalajara to Panama to Aruba, with both
+      legs running daily at about 4h08 and 1h57. Correcting that mattered, so here is the
+      actual objection.</p>
+      <p>It is the shape of the day, and it is a pain for everyone rather than only for
+      Patricia. Copa leaves Guadalajara between 00:11 and 12:22 and leaves Panama for Aruba
+      between 09:12 and 19:01, so the two realistic pairings are a midnight departure with a
+      dawn layover, or a midday departure landing in Aruba near 10pm. Either is a 13-hour
+      travel day bracketed by a bad hour. Meanwhile the rest of us are fighting Aruba&rsquo;s
+      season: its peak runs mid-December to mid-April, so April 7&ndash;14 sits exactly where
+      the seasonal North American service winds down. American from Chicago and Delta from
+      Boston are both seasonal, and Denver currently runs Wednesday to Saturday only. The one
+      party Aruba suits perfectly is Karen&rsquo;s, with a daily KLM nonstop at 10h45. So it
+      is best for the shortest journey and worst for the person the week exists for. Add the
+      thinnest landmark list of the shortlist, since Arikok park, Oranjestad and the natural
+      pool do not carry seven days, and it comes off the list on the merits.</p>
+      <div class="refs"><b>Sources</b>
+        <a href="https://www.flightconnections.com/flights-from-pty-to-aua">Copa PTY&ndash;AUA daily</a> &middot;
+        <a href="https://www.flightconnections.com/flights-from-ams-to-aua">KLM Amsterdam daily</a> &middot;
+        <a href="https://www.flightconnections.com/flights-to-aruba-aua">Seasonal US service</a> &middot;
+        <a href="https://www.jetblue.com/en/flights-from-denver-to-aruba">Denver operating days</a>
+      </div>
+    </div>
+
+    <div class="brief">
+      <h3><span class="n">05</span>Lima and Paracas, Peru<span class="tag decide">Right idea, wrong trip</span></h3>
+      <p>This was Patricia&rsquo;s own suggestion, and checking it properly turned up two
+      things in its favour that we had assumed went the other way. We thought April in
+      Lima was grey and that nobody swims. In fact April averages about 23°C with
+      the garúa fog lifting, sea around 20°C, negligible rain and roughly 185 hours of
+      sunshine. We also said Peru has no resort, and that is only true of Lima itself. About
+      240 km and three hours south is Paracas, a genuine resort bay: Hotel Paracas with 120
+      rooms, two heated pools and its own pier, alongside La Hacienda Bahía Paracas and The
+      Legend. Boats leave the hotel dock for the Ballestas Islands, the Paracas National
+      Reserve is next door, and Nazca overflights go from nearby. As resort-plus-real-places
+      goes, that is a genuinely good answer, and Lima on the way through is one of the best
+      food cities in the world.</p>
+      <p>What stops it is the journey rather than the destination. There is no nonstop from
+      Guadalajara to Lima; every routing connects, usually through Mexico City or Panama,
+      for roughly 9h43 of travel, and then Paracas adds a three-hour drive on the far side.
+      That is effectively a two-day journey in each direction, and easily the hardest
+      arrival on this entire list for everybody, Patricia most of all. Machu Picchu, which is what most people
+      actually mean when they say Peru, compounds it: a separate flight to Cusco and 11,000
+      feet of altitude. The honest summary is that this would be a wonderful trip for a
+      subset of this family in a different year. It is the wrong trip for this particular
+      birthday. <b>Patricia, we&rsquo;d still like to know what drew you to it</b> &mdash; if
+      it was the food and a real city rather than a beach, that points somewhere else
+      entirely, maybe Mexico City or Mérida, and we should talk about that.</p>
+      <div class="refs"><b>Sources</b>
+        <a href="https://www.climatestotravel.com/climate/peru/lima">Lima climate</a> &middot;
+        <a href="https://weather-and-climate.com/Lima-April-averages">Lima in April</a> &middot;
+        <a href="https://www.marriott.com/en-us/hotels/piolc-hotel-paracas-a-luxury-collection-resort-paracas/overview/">Hotel Paracas</a> &middot;
+        <a href="https://luxurylatinamerica.com/peru/libertador_paracas.html">Paracas resorts</a> &middot;
+        <a href="https://www.flightconnections.com/flights-from-gdl-to-lim">GDL&ndash;LIM routings</a>
+      </div>
+    </div>
+
+    <div class="brief">
+      <h3><span class="n">06</span>Cartagena, Colombia<span class="tag decide">No</span></h3>
+      <p>Nobody proposed this one; we added it because it answers the brief unusually well
+      on paper. The walled colonial city is a real landmark rather than a manufactured
+      excursion, the Rosario Islands supply the beach half an hour offshore, and it would be
+      new to everyone, which counts for something on a milestone. Copa makes it easy from
+      Panama and KLM flies it year-round from Amsterdam, so Karen and Pancho and Gloria are
+      both well covered.</p>
+      <p>Then it fails the same test Aruba failed. There is no nonstop from Boston or
+      Chicago, so Ben and Christy both connect through Miami, New York, Fort Lauderdale or
+      Atlanta, and Guadalajara needs connections too. Given that the entire argument for
+      Cancún is that nobody connects, importing connections for three of the six parties in
+      exchange for novelty is a bad trade. It is listed so you can see it was considered and
+      turned down for a reason, not overlooked.</p>
+      <div class="refs"><b>Sources</b>
+        <a href="https://www.flightsfrom.com/CTG">Cartagena nonstop destinations</a> &middot;
+        <a href="https://www.flightconnections.com/flights-to-cartagena-ctg">Flights by origin</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="you">
+  <h2>What we need from you</h2>
+  <p class="sub">Nothing gets booked until these come back</p>
+
+  <div class="card">
+    <div class="row"><div class="t">1</div><div>
+      <div class="what">Patricia &mdash; how far are you happy to fly?</div>
+      <div class="note">This is the one answer that settles the destination. If a 2h40
+      nonstop to Cancún is fine, it&rsquo;s the Riviera Maya. If the one-hour hop to Puerto
+      Vallarta is nearer your limit, we go there instead and everyone else takes a
+      connection. There is no wrong answer and we&rsquo;d rather know now.</div>
+    </div></div>
+    <div class="row"><div class="t">2</div><div>
+      <div class="what">Patricia &mdash; what was it about Lima?</div>
+      <div class="note">Food, a real city, a country you haven&rsquo;t seen, or something
+      else? It changes the shortlist.</div>
+    </div></div>
+    <div class="row"><div class="t">3</div><div>
+      <div class="what">Everyone &mdash; can you do the full week?</div>
+      <div class="note">April 7&ndash;14, or the shorter April 9&ndash;13 core?</div>
+    </div></div>
+    <div class="row"><div class="t">4</div><div>
+      <div class="what">Everyone &mdash; firm numbers</div>
+      <div class="note">Fifteen is the optimistic count. Christy, is it three or four?
+      Ben and Karen, is it three each? The room block depends on it.</div>
+    </div></div>
+    <div class="row"><div class="t">5</div><div>
+      <div class="what">Everyone &mdash; budget comfort</div>
+      <div class="note">All-inclusive runs roughly $280&ndash;500 a room per night at the
+      mid-range places and $600&ndash;1,500 at Xcaret. That is a big fork and it should not
+      be decided by the two of us.</div>
+    </div></div>
+    <div class="row"><div class="t">6</div><div>
+      <div class="what">Everyone &mdash; check your passports now</div>
+      <div class="note">Many countries want six months&rsquo; validity beyond travel, so
+      nothing should expire before October 2027. Patricia&rsquo;s especially.</div>
+    </div></div>
+    <div class="row"><div class="t">7</div><div>
+      <div class="what">Karen &mdash; Brussels or Amsterdam?</div>
+      <div class="note">KLM&rsquo;s nonstop to Cancún only runs Tuesday, Thursday and
+      Saturday, so it shapes your arrival day.</div>
+    </div></div>
+    <div class="row"><div class="t">8</div><div>
+      <div class="what">Patricia &mdash; a party, or a week with your family?</div>
+      <div class="note">Whether we book a private dinner somewhere or just take a long
+      table on the Sunday night.</div>
+    </div></div>
+  </div>
+
+  <div class="wx">This page is read-only and we&rsquo;ll keep it updated as answers come
+  in. <b>Reply on the email thread</b> rather than trying to edit here.</div>
+</section>
+
+<footer>
+  Patricia&rsquo;s 90th &middot; April 2027 &middot; nothing booked yet<br>
+  Route and rate data checked September 2026 and due for reconfirmation before booking.
+</footer>
+</div>
