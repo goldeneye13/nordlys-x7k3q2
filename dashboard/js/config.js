@@ -30,6 +30,9 @@ window.DASH = {
   ],
   airportRefreshMinutes: 5,
 
+  // Photo card: seconds per photo (album links are set in the backend).
+  photoSeconds: 60,
+
   weatherRefreshMinutes: 15,
   aqiRefreshMinutes: 30,
 
