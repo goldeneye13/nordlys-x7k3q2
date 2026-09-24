@@ -1,8 +1,6 @@
-// City cards (clock, current weather, 3-day forecast), current-conditions card and
-// air quality card. Data: Open-Meteo forecast and air-quality APIs (free, no key).
+// City cards (clock, current weather, 3-day forecast) and the air quality card. Data: Open-Meteo forecast and air-quality APIs (free, no key).
 (function () {
   const cfg = window.DASH;
-  const byId = Object.fromEntries(cfg.cities.map((c) => [c.id, c]));
   const STALE_MS = 60 * 60 * 1000; // dim a card whose data is over an hour old
 
   // --- WMO weather code -> Meteocons icon -------------------------------------
@@ -50,20 +48,6 @@
     el.classList.add('city');
   }
 
-  function buildConditions() {
-    const el = document.getElementById('conditions');
-    el.innerHTML = cfg.conditionsCities.map((id) => `
-      <div class="cond" data-city="${id}">
-        <div class="name">${byId[id].name}</div>
-        <div class="cond-grid">
-          <div>${icon('thermometer', 'icon mini')}<span class="feels">--</span><small>feels</small></div>
-          <div>${icon('humidity', 'icon mini')}<span class="rh">--</span></div>
-          <div>${icon('raindrop', 'icon mini')}<span class="dew">--</span><small>dew</small></div>
-          <div>${icon('wind', 'icon mini')}<span class="wind">--</span><small>mph</small></div>
-        </div>
-      </div>`).join('');
-  }
-
   function buildAqi() {
     document.getElementById('aqi').innerHTML = `
       <div class="aqi-value">--</div>
@@ -98,10 +82,9 @@
     const q = new URLSearchParams({
       latitude: cs.map((c) => c.lat).join(','),
       longitude: cs.map((c) => c.lon).join(','),
-      current: 'temperature_2m,apparent_temperature,relative_humidity_2m,dew_point_2m,weather_code,is_day,wind_speed_10m',
+      current: 'temperature_2m,weather_code,is_day',
       daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max',
       temperature_unit: 'fahrenheit',
-      wind_speed_unit: 'mph',
       timezone: 'auto',
       forecast_days: '3',
     });
@@ -111,8 +94,7 @@
       let data = await res.json();
       if (!Array.isArray(data)) data = [data];
       cs.forEach((c, i) => renderCity(c, data[i]));
-      cfg.conditionsCities.forEach((id) => renderConditions(id, data[cs.indexOf(byId[id])]));
-      markFresh(cs.map((c) => 'city-' + c.id).concat('conditions'));
+      markFresh(cs.map((c) => 'city-' + c.id));
     } catch (e) {
       console.warn('[dash] weather update failed:', e.message);
     }
@@ -132,15 +114,6 @@
       day.querySelector('.hi').textContent = Math.round(dd.temperature_2m_max[i]);
       day.querySelector('.lo').textContent = Math.round(dd.temperature_2m_min[i]);
     });
-  }
-
-  function renderConditions(id, d) {
-    const el = document.querySelector(`#conditions .cond[data-city="${id}"]`);
-    const cur = d.current;
-    el.querySelector('.feels').textContent = deg(cur.apparent_temperature);
-    el.querySelector('.rh').textContent = Math.round(cur.relative_humidity_2m) + '%';
-    el.querySelector('.dew').textContent = deg(cur.dew_point_2m);
-    el.querySelector('.wind').textContent = Math.round(cur.wind_speed_10m);
   }
 
   // --- Air quality -----------------------------------------------------------
@@ -189,7 +162,6 @@
 
   // --- Start -----------------------------------------------------------------
   cfg.cities.forEach(buildCity);
-  buildConditions();
   buildAqi();
 
   tickClocks();
