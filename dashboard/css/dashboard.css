@@ -1,0 +1,79 @@
+:root {
+  --stage-w: 1080px;
+  --stage-h: 1920px;
+  --gap: 16px;
+
+  --card-bg: rgba(10, 12, 20, 0.62);
+  --card-border: rgba(255, 255, 255, 0.10);
+  --card-radius: 10px;
+  --text: #f4f6fa;
+  --text-dim: rgba(244, 246, 250, 0.62);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: var(--text);
+  font-family: Roboto, "Segoe UI", system-ui, sans-serif;
+  cursor: none; /* kiosk: no mouse pointer on the TV */
+}
+
+/* The design canvas. Always 1080x1920; stage.js sets --scale and centres it. */
+#stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  transform: translate(-50%, -50%) scale(var(--scale, 1));
+  overflow: hidden;
+  background: #111;
+}
+
+#windy {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Cards float over the map. Position comes from --x/--y on each element. */
+.card {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  backdrop-filter: blur(3px);
+  overflow: hidden;
+}
+
+.city-lg     { width: 340px; height: 280px; }
+.airport     { width: 340px; height: 92px; }
+.city-sm     { width: 336px; height: 108px; }
+.conditions  { width: 588px; height: 124px; }
+.aqi         { width: 588px; height: 108px; }
+.calendar    { width: 588px; height: 624px; }
+.photo       { width: 444px; height: 424px; }
+
+/* Scaffold only — replaced by real widgets in later tickets. */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-dim);
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  border-radius: var(--card-radius);
+}
+.placeholder small { font-size: 20px; font-weight: 400; }
