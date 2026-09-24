@@ -62,6 +62,61 @@ html, body {
 .calendar    { width: 588px; height: 624px; }
 .photo       { width: 444px; height: 424px; }
 
+.stale { opacity: 0.45; }
+
+.icon { display: block; }
+
+/* --- City cards ---------------------------------------------------------- */
+.city { padding: 8px 12px; }
+.city .name { font-size: 22px; font-weight: 500; color: var(--text-dim); }
+.city .now { display: flex; align-items: center; gap: 6px; }
+.city .clock { font-weight: 300; white-space: nowrap; }
+.city .ampm { font-weight: 400; margin-left: 3px; color: var(--text-dim); }
+.city .temp { font-weight: 300; margin-left: auto; }
+
+.city-lg .clock { font-size: 51px; line-height: 1.1; }
+.city-lg .ampm  { font-size: 20px; }
+.city-lg .temp  { font-size: 51px; line-height: 1.1; }
+.city-lg .wx    { width: 68px; height: 68px; margin: -6px -8px -6px -6px; }
+
+.forecast { display: flex; justify-content: space-between; margin-top: 10px; }
+.day { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.dname { font-size: 22px; font-weight: 500; }
+.dicon { width: 80px; height: 80px; margin: -6px 0; }
+.pop  { display: flex; align-items: center; font-size: 19px; color: var(--text-dim); }
+.mini { width: 28px; height: 28px; margin: -4px -2px; }
+.hilo { font-size: 26px; margin-top: 2px; }
+.hilo .hi { font-weight: 500; margin-right: 8px; }
+.hilo .lo { color: var(--text-dim); }
+
+.city-sm .name  { font-size: 20px; }
+.city-sm .clock { font-size: 46px; line-height: 1.1; }
+.city-sm .ampm  { font-size: 18px; }
+.city-sm .temp  { font-size: 46px; line-height: 1.1; }
+.city-sm .wx    { width: 72px; height: 72px; margin: -10px -10px -10px -6px; }
+
+/* --- Current conditions -------------------------------------------------- */
+.conditions { display: flex; }
+.cond { flex: 1; padding: 10px 16px; }
+.cond + .cond { border-left: 1px solid var(--card-border); }
+.cond .name { font-size: 22px; font-weight: 500; color: var(--text-dim); margin-bottom: 6px; }
+.cond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+.cond-grid div { display: flex; align-items: center; gap: 6px; font-size: 26px; }
+.cond-grid .mini { width: 34px; height: 34px; }
+.cond-grid small { font-size: 16px; color: var(--text-dim); }
+
+/* --- Air quality --------------------------------------------------------- */
+.aqi { display: flex; align-items: stretch; }
+.aqi-value {
+  width: 200px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 60px; font-weight: 400;
+  background: rgba(255, 255, 255, 0.1);
+}
+.aqi-text { padding: 14px 20px; display: flex; flex-direction: column; justify-content: center; }
+.aqi-cat { font-size: 30px; font-weight: 500; }
+.aqi-sub { font-size: 18px; color: var(--text-dim); margin-top: 4px; }
+
 /* Scaffold only — replaced by real widgets in later tickets. */
 .placeholder {
   display: flex;
