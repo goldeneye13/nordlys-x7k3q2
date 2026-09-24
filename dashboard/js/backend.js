@@ -31,13 +31,14 @@
   // Poll `fn` every `minutes`; while it has never succeeded, retry every 30 s instead,
   // so one failed first load doesn't leave a card empty for the full interval.
   window.DASH.poll = function (fn, minutes) {
+    const everyMs = Math.max(Number(minutes) * 60 * 1000 || 0, 10 * 1000); // never spin
     let everOk = false;
     let timer = null;
     async function run() {
       clearTimeout(timer);
       const ok = await fn();
       everOk = everOk || ok;
-      timer = setTimeout(run, everOk ? minutes * 60 * 1000 : 30 * 1000);
+      timer = setTimeout(run, everOk ? everyMs : 30 * 1000);
     }
     run();
   };
