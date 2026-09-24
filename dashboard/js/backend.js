@@ -20,7 +20,11 @@
       // Apps Script sometimes answers with an HTML error page (HTTP 200).
       throw new Error('backend returned a non-JSON page');
     }
-    if (!body.ok) throw new Error(body.error || 'backend error');
+    if (!body.ok) {
+      // A wrong key won't fix itself by retrying; let the cards say so.
+      if (body.error === 'unauthorized') window.DASH.badKey = true;
+      throw new Error(body.error || 'backend error');
+    }
     return body.data;
   };
 

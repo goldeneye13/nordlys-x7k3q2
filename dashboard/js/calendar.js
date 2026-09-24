@@ -85,7 +85,8 @@
 
     if (!cfg.hasKey) return void (el.innerHTML = head + '<div class="cal-empty">No key</div>');
     if (!events) {
-      const msg = failed ? 'Can’t reach the calendar yet, retrying…' : 'Loading…';
+      const msg = cfg.badKey ? 'Wrong key in the URL (#k=…)'
+        : failed ? 'Can’t reach the calendar yet, retrying…' : 'Loading…';
       return void (el.innerHTML = head + `<div class="cal-empty">${msg}</div>`);
     }
 

@@ -41,7 +41,13 @@
       lastOk = Date.now();
     } catch (e) {
       console.warn('[dash] airports update failed:', e.message);
-      if (!lastOk) document.querySelectorAll('.ap-headline').forEach((h) => (h.textContent = 'Retrying…'));
+      if (!lastOk) {
+        document.querySelectorAll('.airport-card').forEach((el) => {
+          el.dataset.status = 'unknown';
+          el.querySelector('.ap-glyph').innerHTML = GLYPH.alert;
+          el.querySelector('.ap-headline').textContent = cfg.badKey ? 'Wrong key' : 'Retrying…';
+        });
+      }
     }
     const stale = Date.now() - lastOk > STALE_MS;
     document.querySelectorAll('.airport-card').forEach((el) => el.classList.toggle('stale', stale && lastOk > 0));
