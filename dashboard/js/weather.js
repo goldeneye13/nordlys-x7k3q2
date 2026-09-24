@@ -161,7 +161,29 @@
   }
 
   // --- Start -----------------------------------------------------------------
+  // --- Small cities in increasing local-time order --------------------------
+  // They keep the slots set in index.html, reassigned by current UTC offset, so the
+  // order follows daylight saving (the nightly reload re-sorts). Ties keep config order.
+  function utcOffsetMinutes(tz, when) {
+    const name = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'longOffset' })
+      .formatToParts(when).find((p) => p.type === 'timeZoneName').value; // "GMT-05:00" or "GMT"
+    const m = /GMT([+-])(\d{2}):(\d{2})/.exec(name);
+    return m ? (m[1] === '-' ? -1 : 1) * (Number(m[2]) * 60 + Number(m[3])) : 0;
+  }
+
+  function orderSmallCities() {
+    const now = new Date();
+    const small = cfg.cities.filter((c) => c.size === 'sm');
+    const els = small.map((c) => document.getElementById('city-' + c.id));
+    const slots = els.map((el) => el.style.getPropertyValue('--y')).sort((a, b) => parseFloat(a) - parseFloat(b));
+    small
+      .map((c, i) => ({ el: els[i], off: utcOffsetMinutes(c.tz, now), i }))
+      .sort((a, b) => a.off - b.off || a.i - b.i)
+      .forEach((c, n) => c.el.style.setProperty('--y', slots[n]));
+  }
+
   cfg.cities.forEach(buildCity);
+  orderSmallCities();
   buildAqi();
 
   tickClocks();

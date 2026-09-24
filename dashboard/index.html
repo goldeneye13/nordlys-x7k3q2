@@ -7,48 +7,45 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
-  <link rel="stylesheet" href="css/dashboard.css?v=2f4486a-20260924204518">
+  <link rel="stylesheet" href="css/dashboard.css?v=fb20df4-20260924220357">
 </head>
 <body>
   <!-- Fixed 1080x1920 canvas; stage.js scales it to fit whatever window it's in. -->
   <div id="stage">
     <iframe id="windy" title="Windy weather map" loading="eager"></iframe>
 
-    <section class="card city-lg" id="city-longbeach" style="--x:16px; --y:16px">
-      <div class="placeholder">Long Beach<br><small>time · weather · 3-day</small></div>
-    </section>
-    <section class="card city-lg" id="city-denver" style="--x:372px; --y:16px">
-      <div class="placeholder">Denver<br><small>time · weather · 3-day</small></div>
-    </section>
+    <!-- Layout: 10px margins and gaps. Columns x=10/366 (346 wide) and x=722 (348 wide).
+         Small cities fill 10..494 to line up with the airports' bottom edge; weather.js
+         orders them by local time. Alert cards stay invisible until there's an alert. -->
+    <section class="card city-lg" id="city-longbeach" style="--x:10px;  --y:10px"></section>
+    <section class="card city-lg" id="city-denver"    style="--x:366px; --y:10px"></section>
 
-    <section class="card airport" id="airport-lax" style="--x:16px;  --y:312px"><div class="placeholder">LAX</div></section>
-    <section class="card airport" id="airport-den" style="--x:372px; --y:312px"><div class="placeholder">DEN</div></section>
-    <section class="card airport" id="airport-lgb" style="--x:16px;  --y:420px"><div class="placeholder">LGB</div></section>
-    <section class="card airport" id="airport-sna" style="--x:372px; --y:420px"><div class="placeholder">SNA</div></section>
+    <section class="card airport" id="airport-lax" style="--x:10px;  --y:300px"></section>
+    <section class="card airport" id="airport-den" style="--x:366px; --y:300px"></section>
+    <section class="card airport" id="airport-lgb" style="--x:10px;  --y:402px"></section>
+    <section class="card airport" id="airport-sna" style="--x:366px; --y:402px"></section>
 
-    <section class="card city-sm" id="city-panama"    style="--x:728px; --y:16px"><div class="placeholder">Panama</div></section>
-    <section class="card city-sm" id="city-wisconsin" style="--x:728px; --y:140px"><div class="placeholder">Wisconsin</div></section>
-    <section class="card city-sm" id="city-dc"        style="--x:728px; --y:264px"><div class="placeholder">DC</div></section>
-    <section class="card city-sm" id="city-ajijic"    style="--x:728px; --y:388px"><div class="placeholder">Ajijic</div></section>
+    <section class="card alert" id="alert-longbeach" style="--x:10px;  --y:504px"></section>
+    <section class="card alert" id="alert-denver"    style="--x:366px; --y:504px"></section>
 
-    <section class="card aqi" id="aqi" style="--x:16px; --y:1156px">
-      <div class="placeholder">Air quality</div>
-    </section>
-    <section class="card calendar" id="calendar" style="--x:16px; --y:1280px">
-      <div class="placeholder">Calendar — today</div>
-    </section>
-    <section class="card photo" id="photo" style="--x:620px; --y:1480px">
-      <div class="placeholder">Photo</div>
-    </section>
+    <section class="card city-sm" id="city-panama"    style="--x:722px; --y:10px"></section>
+    <section class="card city-sm" id="city-wisconsin" style="--x:722px; --y:134px"></section>
+    <section class="card city-sm" id="city-dc"        style="--x:722px; --y:258px"></section>
+    <section class="card city-sm" id="city-ajijic"    style="--x:722px; --y:382px"></section>
+
+    <section class="card aqi"      id="aqi"      style="--x:10px;  --y:1232px"></section>
+    <section class="card calendar" id="calendar" style="--x:10px;  --y:1350px"></section>
+    <section class="card photo"    id="photo"    style="--x:608px; --y:1486px"></section>
   </div>
 
-  <script src="js/config.js?v=2f4486a-20260924204518"></script>
-  <script src="js/stage.js?v=2f4486a-20260924204518"></script>
-  <script src="js/weather.js?v=2f4486a-20260924204518"></script>
-  <script src="js/backend.js?v=2f4486a-20260924204518"></script>
-  <script src="js/airports.js?v=2f4486a-20260924204518"></script>
-  <script src="js/calendar.js?v=2f4486a-20260924204518"></script>
-  <script src="js/photos.js?v=2f4486a-20260924204518"></script>
-  <script src="js/reload.js?v=2f4486a-20260924204518"></script>
+  <script src="js/config.js?v=fb20df4-20260924220357"></script>
+  <script src="js/stage.js?v=fb20df4-20260924220357"></script>
+  <script src="js/weather.js?v=fb20df4-20260924220357"></script>
+  <script src="js/backend.js?v=fb20df4-20260924220357"></script>
+  <script src="js/airports.js?v=fb20df4-20260924220357"></script>
+  <script src="js/alerts.js?v=fb20df4-20260924220357"></script>
+  <script src="js/calendar.js?v=fb20df4-20260924220357"></script>
+  <script src="js/photos.js?v=fb20df4-20260924220357"></script>
+  <script src="js/reload.js?v=fb20df4-20260924220357"></script>
 </body>
 </html>
