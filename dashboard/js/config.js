@@ -17,6 +17,19 @@ window.DASH = {
   // Air quality location.
   aqi: { name: 'Long Beach', lat: 33.7701, lon: -118.1937 },
 
+  // Apps Script web app (apps-script/). Public URL; every call also needs the key,
+  // which comes only from the kiosk URL fragment: .../dashboard/#k=<key>
+  backendUrl: 'https://script.google.com/macros/s/AKfycbzz2Zax2pPveW6B3jiyUlw5v_NGBmgf8Je903GoGxFV-1-uE3v7-v0tshdqFwudhYLwOw/exec',
+
+  // Airport cards: id matches "airport-<code>" in index.html. FAA status only (US airports).
+  airports: [
+    { code: 'LAX', name: 'Los Angeles' },
+    { code: 'DEN', name: 'Denver International' },
+    { code: 'LGB', name: 'Long Beach' },
+    { code: 'SNA', name: 'John Wayne · Orange County' },
+  ],
+  airportRefreshMinutes: 5,
+
   weatherRefreshMinutes: 15,
   aqiRefreshMinutes: 30,
 
