@@ -41,13 +41,14 @@
       lastOk = Date.now();
     } catch (e) {
       console.warn('[dash] airports update failed:', e.message);
+      if (!lastOk) document.querySelectorAll('.ap-headline').forEach((h) => (h.textContent = 'Retrying…'));
     }
     const stale = Date.now() - lastOk > STALE_MS;
     document.querySelectorAll('.airport-card').forEach((el) => el.classList.toggle('stale', stale && lastOk > 0));
+    return Date.now() - lastOk < 1000;
   }
 
   cfg.airports.forEach(build);
   if (!cfg.hasKey) return;
-  update();
-  setInterval(update, cfg.airportRefreshMinutes * 60 * 1000);
+  cfg.poll(update, cfg.airportRefreshMinutes);
 })();

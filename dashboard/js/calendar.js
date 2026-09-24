@@ -16,6 +16,7 @@
   let events = null; // last good data
   let lastOk = 0;
   let fetchedFor = ''; // local date the data was fetched for
+  let failed = false; // last attempt failed
 
   const pad = (n) => String(n).padStart(2, '0');
   const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -33,10 +34,13 @@
       events = data.events;
       lastOk = Date.now();
       fetchedFor = ymd(today);
+      failed = false;
     } catch (e) {
       console.warn('[dash] calendar update failed:', e.message);
+      failed = true;
     }
     render();
+    return !failed;
   }
 
   // Split into today and tomorrow. All-day events show under today if they span it,
@@ -80,7 +84,10 @@
       <span class="cal-weekday">${now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span></div>`;
 
     if (!cfg.hasKey) return void (el.innerHTML = head + '<div class="cal-empty">No key</div>');
-    if (!events) return void (el.innerHTML = head + '<div class="cal-empty">Loading…</div>');
+    if (!events) {
+      const msg = failed ? 'Can’t reach the calendar yet, retrying…' : 'Loading…';
+      return void (el.innerHTML = head + `<div class="cal-empty">${msg}</div>`);
+    }
 
     const s = sections(now);
     let html = head + '<div class="cal-list">';
@@ -97,8 +104,7 @@
   el.classList.add('cal');
   render();
   if (!cfg.hasKey) return;
-  update();
-  setInterval(update, 5 * 60 * 1000);
+  cfg.poll(update, 5);
   // Re-render every minute so finished events drop off; refetch when the date changes.
   setInterval(() => (ymd(new Date()) !== fetchedFor ? update() : render()), 60 * 1000);
 })();
